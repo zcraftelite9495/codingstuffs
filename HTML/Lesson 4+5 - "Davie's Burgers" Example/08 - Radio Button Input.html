@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--Checkboxes work well if we want to present users with multiple options and let them choose one or more of the options. However, there are cases where we want to present multiple options and only allow for one selection — like asking users if they agree or disagree with the terms and conditions.-->
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+        <title>Range Input</title>
+    </head>
+    <body>
+        <section id="overlay">
+            <img src="https://content.codecademy.com/courses/web-101/unit-6/htmlcss1-img_burger-logo.svg" alt="Davie's Burgers Logo" id="logo">
+            <hr>
+            <form>
+                <h1>Create a burger!</h1>
+				<section class="protein">
+                    <label for="patty">What type of protein would you like?</label>
+    			    <input type="text" name="patty" id="patty">
+                </section>
+                <hr>
+                <section class="patties">
+                    <label for="amount">How many patties would you like?</label>
+                    <input type="number" name="amount" id="amount">
+                </section>
+                <hr>		
+                <section class="cooked">
+                    <label for="doneness">How do you want your patty cooked</label>
+                    <br>
+                    <span>Rare</span>
+                    <input id="doneness" name="doneness" type="range" min="0" max="5" step="0.5">
+                    <span>Well-Done</span>
+                </section>
+                <section class="toppings">
+                    <span>What toppings would you like?</span>
+                    <br>
+                    <input id="bacon" name="topping" type="checkbox" value="bacon">
+                    <label for="bacon">Bacon</label>
+                    <br>
+                    <input id="lettuce" name="topping" type="checkbox" value="lettuce">
+                    <label for="lettuce">Lettuce</label>
+                    <br>
+                    <input id="tomato" name="topping" type="checkbox" value="tomato">
+                    <label for="tomato">Tomato</label>
+                </section>
+                <section class="cheesy">
+                    <span>Would you like to add cheese?</span>
+                    <br>
+                    <input id="yes" name="cheese" type="radio" value="yes">
+                    <label for="yes">Yes</label>
+                    <input id="no" name="cheese" type="radio" value="no">
+                    <label for="no">No</label>
+                </section>
+            </form>
+        </section>
+    </body>
+</html>
