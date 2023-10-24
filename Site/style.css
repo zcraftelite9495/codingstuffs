@@ -2,6 +2,11 @@ body {
     background-image: url('Assets/bg.jpg');
 }
 
+div.under-construction-notice {
+    text-align: center;
+    word-wrap: normal;
+    color: white;
+}
 p.paragraph {
     width: 700px;
     word-wrap: normal;
