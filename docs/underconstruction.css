@@ -16,9 +16,6 @@ p.paragraphcentered {
     word-wrap: normal;
     text-align: center;
 }
-div.header {
-    text-align: center;
-}
 *.centered {
     text-align: center;
 }
