@@ -1,9 +1,0 @@
-{
-  "parent": "ghostly_cuisine:custom/ghostl",
-  "textures": {
-    "all": "ghostly_cuisine:block/ghost",
-    "particle": "ghostly_cuisine:block/ghost",
-    "0": "ghostly_cuisine:block/ghost"
-  },
-  "render_type": "solid"
-}
