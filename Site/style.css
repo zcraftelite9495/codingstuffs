@@ -1,0 +1,19 @@
+body {
+    background-image: url('Assets/bg.jpg');
+}
+
+p.paragraph {
+    width: 700px;
+    word-wrap: normal;
+}
+p.paragraphcentered {
+    width: 700px;
+    word-wrap: normal;
+    text-align: center;
+}
+div.header {
+    text-align: center;
+}
+*.centered {
+    text-align: center;
+}
