@@ -26,6 +26,7 @@ p.paragraph-centered {
     max-width: 100%;
     word-wrap: normal;
     text-align: center;
+    margin: 0 auto;
   }
 *.centered {
     text-align: center;
