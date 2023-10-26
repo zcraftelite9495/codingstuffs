@@ -5,6 +5,10 @@ body.under-construction-notice {
 div.under-construction-notice {
     text-align: center;
     color: orange;
+    img {
+        text-align: left;
+        float: left;
+    }
 }
 
 /*Body Homepage Styles*/
