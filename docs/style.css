@@ -29,7 +29,10 @@ p.paragraph-centered {
     margin: 0 auto;
   }
 *.centered {
+    max-width: 100%;
+    word-wrap: normal;
     text-align: center;
+    margin: 0 auto;
 }
 
 /*Divider Types*/
