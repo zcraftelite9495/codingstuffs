@@ -9,13 +9,19 @@ div.under-construction-notice {
 
 /*Body Homepage Styles*/
 body.homepage {
-    background-color: darkseagreen;
+    background-color: #b6d7a8;
 }
-div.header {
-    text-align: center;
+
+/*Projects Page Style*/
+body.projects {
+    background-color: #9fc5e8;
 }
 
 /*Main Style Types*/
+
+div.header {
+    text-align: center;
+}
 p.paragraph {
     width: 700px;
     max-width: 100%;
