@@ -3,7 +3,6 @@ body.under-construction-notice {
     background-image: url('Assets/bg.jpg');
 }
 div.under-construction-notice {
-    font-family: 'Comfortaa', sans-serif;
     text-align: center;
     color: white;
 }
