@@ -1,3 +1,4 @@
+/*Under Construction Page Styles*/
 body.under-construction-notice {
     background-image: url('Assets/bg.jpg');
 }
@@ -6,6 +7,16 @@ div.under-construction-notice {
     text-align: center;
     color: white;
 }
+
+/*Body Homepage Styles*/
+body.homepage {
+    background-color: darkseagreen;
+}
+div.header {
+    text-align:center;
+}
+
+/*Main Style Types*/
 p.paragraph {
     width: 700px;
     word-wrap: normal;
@@ -17,4 +28,19 @@ p.paragraphcentered {
 }
 *.centered {
     text-align: center;
+}
+
+/*Divider Types*/
+hr.dashed {
+    border-top: 3px dashed #bbb;
+  }
+hr.dotted {
+    border-top: 3px dotted #bbb;
+}
+hr.solid {
+    border-top: 3px solid #bbb;
+}
+hr.rounded {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
 }
