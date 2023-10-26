@@ -5,6 +5,7 @@ body.under-construction-notice {
 div.under-construction-notice {
     text-align: center;
     color: orange;
+    -webkit-text-stroke: 2px black;
 }
 
 /*Body Homepage Styles*/
