@@ -20,7 +20,7 @@ p.paragraph {
     width: 700px;
     word-wrap: normal;
 }
-p.paragraphcentered {
+p.paragraph-centered {
     width: 700px;
     word-wrap: normal;
     text-align: center;
