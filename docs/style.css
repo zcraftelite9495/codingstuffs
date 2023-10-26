@@ -1,3 +1,11 @@
+body.under-construction-notice {
+    background-image: url('Assets/bg.jpg');
+}
+div.under-construction-notice {
+    font-family: 'Comfortaa', sans-serif;
+    text-align: center;
+    color: white;
+}
 p.paragraph {
     width: 700px;
     word-wrap: normal;
@@ -5,9 +13,6 @@ p.paragraph {
 p.paragraphcentered {
     width: 700px;
     word-wrap: normal;
-    text-align: center;
-}
-div.header {
     text-align: center;
 }
 *.centered {
