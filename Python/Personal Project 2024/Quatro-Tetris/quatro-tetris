@@ -1,6 +1,8 @@
 #!/bin/bash
 # Tells the user what part of this file is running
 echo "Checking Requirements..."
+sleep 1 # Adds fake delay to increase the amount of time the text shows
+clear
 
 # Sets the modules required for the program to be ran
 modules=("pygame" "random" "time" "easing" "soundmanager" "configparser")
@@ -18,6 +20,11 @@ done
 
 # Prompts the user for what version of Quatro Tetris they want to run
 read -p "Enter the Python version number to run (e.g., v0.0.1, v0.0.2): " quatro_version
+clear
+
+# Tells the user what part of this file is running
+echo "Checking python version..."
+sleep 1 # Adds fake delay to increase the amount of time the text shows
 
 # Detects the type of python command you have installed on your system
 if command -v python &>/dev/null; then # Checks to see if you use 'python'
@@ -42,6 +49,11 @@ else
     echo "----------------------"
     echo "It appears that you do not have a valid Python 3 command interpreter. Quatro Tetris cannot be run without Python 3. Please install a Python 3 Interpreter and try again."
 fi
+
+# Tells the user what part of this file is running
+clear
+echo "Checking game version..."
+sleep 0.5 # Adds fake delay to increase the amount of time the text shows
 
 # Sets the filename based on the version selected by the user
 python_file="quatro-tetris-$version.py"
