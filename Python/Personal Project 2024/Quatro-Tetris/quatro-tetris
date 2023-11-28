@@ -74,27 +74,8 @@ if [ -f "$python_file" ]; then
     sleep 1
     clear
     # Gets the output given when the game exits
-    output=$($python_command "$python_file" 2>&1)
-    # Checks the exit code given by the game
-    exit_code=$?
-    if [ $exit_code -ne 0 ]; then # Checks if the exit was due to an error
-        # If the exit was due to an error, the following error code is given
-        clear
-        echo "Error 0000"
-        echo "----------------------"
-        echo "A unexpected error occured. Please try again. If the issue persists, please contact the developer."
-        echo ""
-        echo "More Info"
-        echo "----------------------"
-        echo "Game Version: $version"
-        echo "Python Version: $python_version"
-        echo ""
-        echo "Python Output"
-        echo "----------------------"
-        echo "$output"
-        exit 1
-    fi
-    sleep 1
+    $python_command "$python_file"
+    sleep 3
     clear
     echo "Quatro Tetris $version"
     echo "----------------------"
