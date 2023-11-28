@@ -21,7 +21,7 @@ done
 clear
 
 # Prompts the user for what version of Quatro Tetris they want to run
-read -p "Enter the Python version number to run (e.g., v0.0.1, v0.0.2): " quatro_version
+read -p "Enter the Python version number to run (e.g., v0.0.1, v0.0.2): " version
 clear
 
 # Tells the user what part of this file is running
