@@ -69,7 +69,7 @@ python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
 clear
 
 # Creates a temporary file to store output data
-$tmpfile=$(mktmp)
+$tmpfile=$(mktemp)
 
 # Runs the game
 if [ -f "$python_file" ]; then
