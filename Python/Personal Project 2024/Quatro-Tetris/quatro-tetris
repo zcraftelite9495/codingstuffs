@@ -68,20 +68,43 @@ python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
 # Clears the screen because the process was finished
 clear
 
+# Creates a temporary file to store output data
+$tmpfile=$(mktmp)
+
 # Runs the game
 if [ -f "$python_file" ]; then
     echo "Running Quatro Tetris ($version)"
     sleep 1
     clear
     # Gets the output given when the game exits
-    $python_command "$python_file"
-    sleep 3
+    $python_command "$python_file" > "$tmpfile" 2>&1
+    # Checks the exit code given by the game
+    exit_code=$?
+    if [ $exit_code -ne 0 ]; then # Checks if the exit was due to an error
+        # If the exit was due to an error, the following error code is given
+        clear
+        echo "Error 0000"
+        echo "----------------------"
+        echo "A unexpected error occured. Please try again. If the issue persists, please contact the developer."
+        echo ""
+        echo "More Info"
+        echo "----------------------"
+        echo "Game Version: $version"
+        echo "Python Version: $python_version"
+        echo ""
+        echo "Python Output"
+        echo "----------------------"
+        cat "$tmpfile"
+        exit 1
+    fi
+    sleep 1
     clear
     echo "Quatro Tetris $version"
     echo "----------------------"
     echo "Thanks for playing"
     echo "Give feedback on Twitter or Instagram by mentioning @zcraftelite"
     echo ""
+    rm "$tmpfile"
     exit 1
 else
     clear
