@@ -2,7 +2,6 @@
 # Tells the user what part of this file is running
 echo "Checking Requirements..."
 sleep 1 # Adds fake delay to increase the amount of time the text shows
-clear
 
 # Sets the modules required for the program to be ran
 modules=("pygame" "random" "time" "easing" "soundmanager" "configparser")
@@ -17,6 +16,9 @@ for module in "${modules[@]}"; do
         pip install $module
     fi
 done
+
+# Clears the screen because the process was finished
+clear
 
 # Prompts the user for what version of Quatro Tetris they want to run
 read -p "Enter the Python version number to run (e.g., v0.0.1, v0.0.2): " quatro_version
@@ -50,8 +52,10 @@ else
     echo "It appears that you do not have a valid Python 3 command interpreter. Quatro Tetris cannot be run without Python 3. Please install a Python 3 Interpreter and try again."
 fi
 
-# Tells the user what part of this file is running
+# Clears the screen because the process was finished
 clear
+
+# Tells the user what part of this file is running
 echo "Checking game version..."
 sleep 0.5 # Adds fake delay to increase the amount of time the text shows
 
@@ -60,6 +64,9 @@ python_file="quatro-tetris-$version.py"
 
 # Detects the exact version of python the user is running and saves it to a variable
 python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
+
+# Clears the screen because the process was finished
+clear
 
 # Runs the game
 if [ -f "$python_file" ]; then
@@ -94,6 +101,7 @@ if [ -f "$python_file" ]; then
     echo "Thanks for playing"
     echo "Give feedback on Twitter or Instagram by mentioning @zcraftelite"
     echo ""
+    exit 1
 else
     clear
     echo "Error 0004"
@@ -102,3 +110,6 @@ else
     echo ""
     exit 1
 fi
+
+# Clears the screen because the process was finished
+clear
