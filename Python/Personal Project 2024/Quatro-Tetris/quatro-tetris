@@ -3,7 +3,7 @@
 echo "Checking Requirements..."
 
 # Sets the modules required for the program to be ran
-modules=("pygame" "random" "time" "easing" "soundmanager" "configparser")
+modules=("pygame" "random" "time" "easing" "soundmanager" "configparser" "sys")
 
 # Checks weather or not those modules are installed, and installs them if they arent
 for module in "${modules[@]}"; do
