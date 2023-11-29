@@ -29,7 +29,7 @@ clear
 echo "Checking Python Version..."
 sleep 1 # Adds fake delay so text displays longer
 
-if [ "$python_set" -ne "y" ]; then
+if [ "$python_set" != "y" ]; then
     # Detects the type of python command you have installed on your system
     if command -v python &>/dev/null; then # Checks to see if you use 'python'
         python_command="python" # If you use 'python', sets the python command to 'python'
