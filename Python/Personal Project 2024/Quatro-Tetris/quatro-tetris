@@ -58,7 +58,7 @@ fi
 # Prompts the user to make sure the system detected the correct python prefix
 clear
 read -p "Quatro Tetris has detected you use the '$python_command' prefix, is this correct? (y/n): " confirmation_1
-if [ $confirmation_1 = "n" ]; then
+if [ "$confirmation_1" = "n" ]; then
     echo "Try changing your configuration and try again. Or use --py-command and then your python command."
     exit 1
 fi
@@ -103,18 +103,21 @@ python_file="quatro-tetris-$version.py"
 # Detects the exact version of python the user is running and saves it to a variable
 python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
 
+# Creates a temporarily file to store data
+tempfile=$(mktemp)
+
 # Runs the game
 if [ -f "$python_file" ]; then
     echo "Running Quatro Tetris ($version)"
     sleep 1
     clear
     # Gets the output given when the game exits
-    output=$($python_command "$python_file" 2>&1)
+    $python_command "$python_file" >(tee /dev/tty) 2> "$tempfile"
     # Checks the exit code given by the game
     exit_code=$?
     if [ $exit_code -ne 0 ]; then # Checks if the exit was due to an error
         # If the exit was due to an error, the following error code is given
-        if [[ $output =~ "SyntaxError" ]]; then
+        if [ "$(cat "$tempfile")" =~ "SyntaxError" ]; then
             echo "Error 0005"
             echo "----------------------"
             echo "A syntax error in the game code has occured. Please try again. If the issue presists, please contact the developer."
@@ -126,7 +129,7 @@ if [ -f "$python_file" ]; then
             echo ""
             echo "Python Output"
             echo "----------------------"
-            echo "$output"
+            cat "$tempfile"
         else
             clear
             echo "Error 0000"
@@ -140,7 +143,7 @@ if [ -f "$python_file" ]; then
             echo ""
             echo "Python Output"
             echo "----------------------"
-            echo "$output"
+            cat "$tempfile"
             exit 1
         fi
     fi
