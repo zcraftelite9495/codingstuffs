@@ -4,7 +4,7 @@
 python_command=""
 
 ## [--help] Command
-if [ "$1" -e "-h" || "$1" -e "--help" ]; then
+if [ "$1" = "-h" || "$1" = "--help" ]; then
     echo "Quatro Tetris Help"
     echo "-----------------------------------"
     echo "Command Operators"
@@ -29,7 +29,7 @@ clear
 echo "Checking Python Version..."
 sleep 1 # Adds fake delay so text displays longer
 
-if [ "$python_set" -ne "y" ]
+if [ "$python_set" -ne "y" ]; then
     # Detects the type of python command you have installed on your system
     if command -v python &>/dev/null; then # Checks to see if you use 'python'
         python_command="python" # If you use 'python', sets the python command to 'python'
