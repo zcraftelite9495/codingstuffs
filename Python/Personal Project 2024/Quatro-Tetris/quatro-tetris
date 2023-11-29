@@ -4,7 +4,7 @@
 python_command=""
 
 ## [--help] Command
-if [ $1 = "-h" || $1 = "--help" ]; then
+if [ "$1" = "-h" || "$1" = "--help" ]; then
     echo "Quatro Tetris Help"
     echo "-----------------------------------"
     echo "Command Operators"
@@ -16,9 +16,10 @@ if [ $1 = "-h" || $1 = "--help" ]; then
 fi
 
 ## [--py-command] Command
-if [ $1 = "--py-command" ]; then
+if [ "$1" = "--py-command" ]; then
     python_command="$2"
     echo "Python Command was set to $python_command"
+    python_set="y"
 fi
 
 # Clears the screen to prepare for game run
@@ -28,7 +29,7 @@ clear
 echo "Checking Python Version..."
 sleep 1 # Adds fake delay so text displays longer
 
-if [ $python_command = "" ]; then
+if [ "$python_set" -ne "y" ]
     # Detects the type of python command you have installed on your system
     if command -v python &>/dev/null; then # Checks to see if you use 'python'
         python_command="python" # If you use 'python', sets the python command to 'python'
@@ -52,7 +53,6 @@ if [ $python_command = "" ]; then
         echo "----------------------"
         echo "It appears that you do not have a valid Python 3 command interpreter. Quatro Tetris cannot be run without Python 3. Please install a Python 3 Interpreter and try again."
     fi
-fi
 
 # Prompts the user to make sure the system detected the correct python prefix
 clear
