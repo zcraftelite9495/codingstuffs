@@ -4,7 +4,7 @@
 python_command=""
 
 ## [--help] Command
-if [ "$1" = "-h" || "$1" = "--help" ]; then
+if [ "$1" = "--help" ]; then
     echo "Quatro Tetris Help"
     echo "-----------------------------------"
     echo "Command Operators"
