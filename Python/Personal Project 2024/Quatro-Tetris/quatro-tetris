@@ -53,6 +53,7 @@ if [ "$python_set" -ne "y" ]
         echo "----------------------"
         echo "It appears that you do not have a valid Python 3 command interpreter. Quatro Tetris cannot be run without Python 3. Please install a Python 3 Interpreter and try again."
     fi
+fi
 
 # Prompts the user to make sure the system detected the correct python prefix
 clear
