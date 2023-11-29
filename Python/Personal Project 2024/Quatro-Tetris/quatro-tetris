@@ -96,9 +96,13 @@ clear
 
 # Tells the user what part of the program is running
 echo "Checking Game Version..."
+sleep 1
 
 # Sets the filename based on the version selected by the user
 python_file="quatro-tetris-$version.py"
+
+# Clears the screen because the process has finished
+clear
 
 # Detects the exact version of python the user is running and saves it to a variable
 python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
