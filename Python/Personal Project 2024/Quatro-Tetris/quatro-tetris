@@ -6,9 +6,6 @@ clear
 # Tells the user what part of this file is running
 echo "Checking Python Version..."
 
-# Prompts the user for what version of Quatro Tetris they want to run
-read -p "Enter the game version number to run (e.g., v0.0.1, v0.0.2): " version
-
 # Detects the type of python command you have installed on your system
 if command -v python &>/dev/null; then # Checks to see if you use 'python'
     python_command="python" # If you use 'python', sets the python command to 'python'
@@ -34,6 +31,10 @@ else
 fi
 
 # Clears the screen because the process was finished
+clear
+
+# Prompts the user for what version of Quatro Tetris they want to run
+read -p "Enter the game version number to run (e.g., v0.0.1, v0.0.2): " version
 clear
 
 # Tells the user what part of this file is running
