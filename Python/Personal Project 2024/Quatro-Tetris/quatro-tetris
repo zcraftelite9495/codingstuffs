@@ -1,23 +1,13 @@
 #!/bin/bash
+
+# Clears the screen to prepare for game run
+clear
+
 # Tells the user what part of this file is running
-echo "Checking Requirements..."
-
-# Sets the modules required for the program to be ran
-modules=("pygame" "random" "time" "easing" "soundmanager" "configparser" "sys")
-
-# Checks weather or not those modules are installed, and installs them if they arent
-for module in "${modules[@]}"; do
-    if python -c "import $module" &>/dev/null; then
-        echo "$module - Found"
-    else
-        echo "$module - Not Found"
-        echo "Installing $module..."
-        pip install $module
-    fi
-done
+echo "Checking Python Version..."
 
 # Prompts the user for what version of Quatro Tetris they want to run
-read -p "Enter the Python version number to run (e.g., v0.0.1, v0.0.2): " quatro_version
+read -p "Enter the game version number to run (e.g., v0.0.1, v0.0.2): " version
 
 # Detects the type of python command you have installed on your system
 if command -v python &>/dev/null; then # Checks to see if you use 'python'
@@ -42,6 +32,36 @@ else
     echo "----------------------"
     echo "It appears that you do not have a valid Python 3 command interpreter. Quatro Tetris cannot be run without Python 3. Please install a Python 3 Interpreter and try again."
 fi
+
+# Clears the screen because the process was finished
+clear
+
+# Tells the user what part of this file is running
+echo "Checking Requirements..."
+sleep 1 # Adds fake delay to show text on screen longer
+
+# Sets the modules required for the program to be ran
+modules=("pygame" "random" "time" "easing" "soundmanager" "configparser" "sys")
+
+# Checks weather or not those modules are installed, and installs them if they arent
+for module in "${modules[@]}"; do
+    if $python_command -c "import $module" &>/dev/null; then
+        echo "$module - Found"
+    else
+        echo "$module - Not Found"
+        echo "Installing $module..."
+        pip install $module
+    fi
+done
+
+# Adds fake delay to show text on screen longer
+sleep 1
+
+# Clears the screen because the process was finished
+clear
+
+# Tells the user what part of the program is running
+echo "Checking Game Version..."
 
 # Sets the filename based on the version selected by the user
 python_file="quatro-tetris-$version.py"
