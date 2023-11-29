@@ -60,20 +60,36 @@ if [ -f "$python_file" ]; then
     exit_code=$?
     if [ $exit_code -ne 0 ]; then # Checks if the exit was due to an error
         # If the exit was due to an error, the following error code is given
-        clear
-        echo "Error 0000"
-        echo "----------------------"
-        echo "A unexpected error occured. Please try again. If the issue persists, please contact the developer."
-        echo ""
-        echo "More Info"
-        echo "----------------------"
-        echo "Game Version: $version"
-        echo "Python Version: $python_version"
-        echo ""
-        echo "Python Output"
-        echo "----------------------"
-        echo "$output"
-        exit 1
+        if [[ $output =~ "SyntaxError" ]]; then
+            echo "Error 0005"
+            echo "----------------------"
+            echo "A syntax error in the game code has occured. Please try again. If the issue presists, please contact the developer."
+            echo ""
+            echo "More Info"
+            echo "----------------------"
+            echo "Game Version: $version"
+            echo "Python Version: $python_version"
+            echo ""
+            echo "Python Output"
+            echo "----------------------"
+            echo "$output"
+            exit 1
+        else
+            clear
+            echo "Error 0000"
+            echo "----------------------"
+            echo "A unexpected error in the game code has occured. Please try again. If the issue persists, please contact the developer."
+            echo ""
+            echo "More Info"
+            echo "----------------------"
+            echo "Game Version: $version"
+            echo "Python Version: $python_version"
+            echo ""
+            echo "Python Output"
+            echo "----------------------"
+            echo "$output"
+            exit 1
+        fi
     fi
     sleep 1
     clear

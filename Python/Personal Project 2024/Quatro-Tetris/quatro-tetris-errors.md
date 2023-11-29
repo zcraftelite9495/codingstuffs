@@ -3,7 +3,7 @@
 ## Error Code - 0000
 
 ### Error Message
-A unexpected error occured. Please try again. If the issue persists, please contact the developer.
+A unexpected error in the game code has occured. Please try again. If the issue persists, please contact the developer.
 
 ### Error Explanation
 This error results from an error that the system could not specify and requires additional debugging. This will contain the error explanation that python gives.
@@ -31,3 +31,19 @@ It appears that you do not have a valid Python 3 command interpreter. Quatro Tet
 
 ### Error Explanation
 Like Error 0002, this error occurs when no python 3 interpreter is detected, but instead there is no interpreters installed.
+
+## Error Code - 0004
+
+### Error Message
+The Version of the game you are trying to run ($version), does not exist or is not currently downloaded. Please ensure you downloaded the entire Quatro-Tetris folder from the repository, and that you typed the version number in correctly (v#.#.#)
+
+### Error Explanation
+The user either mistyped the version code of the game they are trying to run, or did not download the version of the game they are trying to run.
+
+## Error Code - 0005 
+
+### Error Message
+A syntax error in the game code has occured. Please try again. If the issue persists, please contact the developer.
+
+### Error Explanation
+This error results when python encounters an error related to syntax processing, and needs to be debugged by the developer.
