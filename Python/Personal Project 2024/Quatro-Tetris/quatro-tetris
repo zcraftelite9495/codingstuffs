@@ -75,7 +75,7 @@ echo "Checking Requirements..."
 sleep 1 # Adds fake delay to show text on screen longer
 
 # Sets the modules required for the program to be ran
-modules=("pygame" "random" "time" "sound" "configparser" "sys")
+modules=("pygame" "random" "time" "sound" "configparser" "sys" "tkinter")
 
 # Checks weather or not those modules are installed, and installs them if they arent
 for module in "${modules[@]}"; do
