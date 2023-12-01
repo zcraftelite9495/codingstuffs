@@ -21,6 +21,9 @@ while running:
     # Fills the screen backround with black
     screen.fill((0, 0, 0))
 
+    # This will draw a circle in the center of the screen
+    pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
+
     # Flips the display so it displays correctly
     pygame.display.flip()
 
