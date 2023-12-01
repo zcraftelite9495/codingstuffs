@@ -75,7 +75,7 @@ echo "Checking Requirements..."
 sleep 1 # Adds fake delay to show text on screen longer
 
 # Sets the modules required for the program to be ran
-modules=("pygame" "random" "time" "sound" "configparser" "sys" "tkinter")
+modules=("pygame" "random" "time" "sound" "configparser" "sys")
 
 # Checks weather or not those modules are installed, and installs them if they arent
 for module in "${modules[@]}"; do
@@ -134,6 +134,7 @@ if [ -f "$python_file" ]; then
             echo "Python Output"
             echo "----------------------"
             cat "$tempfile"
+            exit 1
         else
             clear
             echo "Error 0000"
