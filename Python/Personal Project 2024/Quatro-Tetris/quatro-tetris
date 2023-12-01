@@ -22,6 +22,16 @@ if [ "$1" = "--py-command" ]; then
     python_set="y"
 fi
 
+## [--debug] Command
+if [ "$1" = "--debug" ]; then
+    debug="y"
+    echo="Debug mode is running..."
+    sleep 1
+    clear
+fi
+
+## Main Executable File
+
 # Clears the screen to prepare for game run
 clear
 
@@ -66,6 +76,20 @@ fi
 # Clears the screen because the process was finished
 clear
 
+# Tells the user what part of the program is running
+echo "Checking Linux Distribution..."
+
+# For debug purposes, reads the contents of the '/etc/os-release' file into variables to detect the linux distribution that is running
+source <(grep -E "^(NAME|VERSION)=" /etc/os-release) # Gets the Linux Distribution from /etc/os-release and extracts the 'NAME' and 'VERSION' variables
+distro_name=$NAME # Renames the variable 'NAME'
+distro_version=$VERSION # Renames the variable 'VERSION'
+distro_info="$distro_name $distro_version" # Combines the new variables
+unset NAME
+unset VERSION
+
+# Clears the screen because the process was finished
+clear
+
 # Prompts the user for what version of Quatro Tetris they want to run
 read -p "Enter the game version number to run (e.g., v0.0.1, v0.0.2): " version
 clear
@@ -104,6 +128,10 @@ python_file="quatro-tetris-$version.py"
 # Clears the screen because the process has finished
 clear
 
+# Detects the version of the 'pygame' library the user is running and saves it to a variable
+pygame_output=$(pip show pygame)
+pygame_version=$(echo "$pygame_output" | awk '/version:/{print $2}')
+
 # Detects the exact version of python the user is running and saves it to a variable
 python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
 
@@ -112,6 +140,14 @@ tempfile=$(mktemp)
 
 # Runs the game
 if [ -f "$python_file" ]; then
+    if [ "$debug" = "y" ]; then
+        echo "Game Version: $version"
+        echo "Python Version: $python_version"
+        echo "Pygame Version: $pygame_version"
+        echo "Linux Distro: $distro_info"
+        sleep 1.5
+        clear
+    fi
     echo "Running Quatro Tetris ($version)"
     sleep 1
     clear
@@ -125,58 +161,74 @@ if [ -f "$python_file" ]; then
             echo "Error 0005"
             echo "----------------------"
             echo "A syntax error in the game code has occured. Please try again. If the issue presists, please contact the developer."
-            echo ""
-            echo "More Info"
-            echo "----------------------"
-            echo "Game Version: $version"
-            echo "Python Version: $python_version"
-            echo ""
-            echo "Python Output"
-            echo "----------------------"
-            cat "$tempfile"
+            if [ "$debug" = "y" ]; then
+                echo ""
+                echo "More Info"
+                echo "----------------------"
+                echo "Game Version: $version"
+                echo "Python Version: $python_version"
+                echo "Pygame Version: $pygame_version"
+                echo "Linux Distro: $distro_info"
+                echo ""
+                echo "Python Output"
+                echo "----------------------"
+                cat "$tempfile"
+            fi
             exit 1
         elif [[ "$(cat "$tempfile")" =~ "TypeError" ]]; then
             echo "Error 0006"
             echo "----------------------"
             echo "A type error in the game code has occured. Please try again. If the issue presists, please contact the developer."
-            echo ""
-            echo "More Info"
-            echo "----------------------"
-            echo "Game Version: $version"
-            echo "Python Version: $python_version"
-            echo ""
-            echo "Python Output"
-            echo "----------------------"
-            cat "$tempfile"
+            if [ "$debug" = "y" ]; then
+                echo ""
+                echo "More Info"
+                echo "----------------------"
+                echo "Game Version: $version"
+                echo "Python Version: $python_version"
+                echo "Pygame Version: $pygame_version"
+                echo "Linux Distro: $distro_info"
+                echo ""
+                echo "Python Output"
+                echo "----------------------"
+                cat "$tempfile"
+            fi
             exit 1
         elif [[ "$(cat "$tempfile")" =~ "IndexError" ]]; then
             echo "Error 0007"
             echo "----------------------"
             echo "A index error in the game code has occured. Please try again. If the issue presists, please contact the developer."
-            echo ""
-            echo "More Info"
-            echo "----------------------"
-            echo "Game Version: $version"
-            echo "Python Version: $python_version"
-            echo ""
-            echo "Python Output"
-            echo "----------------------"
-            cat "$tempfile"
+            if [ "$debug" = "y" ]; then
+                echo ""
+                echo "More Info"
+                echo "----------------------"
+                echo "Game Version: $version"
+                echo "Python Version: $python_version"
+                echo "Pygame Version: $pygame_version"
+                echo "Linux Distro: $distro_info"
+                echo ""
+                echo "Python Output"
+                echo "----------------------"
+                cat "$tempfile"
+            fi
             exit 1
         else
             clear
             echo "Error 0000"
             echo "----------------------"
             echo "A unexpected error in the game code has occured. Please try again. If the issue persists, please contact the developer."
-            echo ""
-            echo "More Info"
-            echo "----------------------"
-            echo "Game Version: $version"
-            echo "Python Version: $python_version"
-            echo ""
-            echo "Python Output"
-            echo "----------------------"
-            cat "$tempfile"
+            if [ "$debug" = "y" ]; then
+                echo ""
+                echo "More Info"
+                echo "----------------------"
+                echo "Game Version: $version"
+                echo "Python Version: $python_version"
+                echo "Pygame Version: $pygame_version"
+                echo "Linux Distro: $distro_info"
+                echo ""
+                echo "Python Output"
+                echo "----------------------"
+                cat "$tempfile"
+            fi
             exit 1
         fi
     fi
