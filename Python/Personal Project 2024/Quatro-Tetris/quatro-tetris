@@ -191,7 +191,7 @@ if [ -f "$python_file" ]; then
         if [[ "$(cat "$tempfile")" =~ "SyntaxError" ]]; then
             echo "Error 0005"
             echo "----------------------"
-            echo "A syntax error in the game code has occured. Please try again. If the issue presists, please contact the developer."
+            echo "A SyntaxError in the game code has occured. Please try again. If the issue presists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
                 echo "More Info"
@@ -209,7 +209,7 @@ if [ -f "$python_file" ]; then
         elif [[ "$(cat "$tempfile")" =~ "TypeError" ]]; then
             echo "Error 0006"
             echo "----------------------"
-            echo "A type error in the game code has occured. Please try again. If the issue presists, please contact the developer."
+            echo "A TypeError in the game code has occured. Please try again. If the issue presists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
                 echo "More Info"
@@ -227,7 +227,7 @@ if [ -f "$python_file" ]; then
         elif [[ "$(cat "$tempfile")" =~ "IndexError" ]]; then
             echo "Error 0007"
             echo "----------------------"
-            echo "A index error in the game code has occured. Please try again. If the issue presists, please contact the developer."
+            echo "A IndexError in the game code has occured. Please try again. If the issue presists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
                 echo "More Info"
