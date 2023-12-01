@@ -135,6 +135,34 @@ if [ -f "$python_file" ]; then
             echo "----------------------"
             cat "$tempfile"
             exit 1
+        elif [[ "$(cat "$tempfile")" =~ "TypeError" ]]; then
+            echo "Error 0006"
+            echo "----------------------"
+            echo "A type error in the game code has occured. Please try again. If the issue presists, please contact the developer."
+            echo ""
+            echo "More Info"
+            echo "----------------------"
+            echo "Game Version: $version"
+            echo "Python Version: $python_version"
+            echo ""
+            echo "Python Output"
+            echo "----------------------"
+            cat "$tempfile"
+            exit 1
+        elif [[ "$(cat "$tempfile")" =~ "IndexError" ]]; then
+            echo "Error 0007"
+            echo "----------------------"
+            echo "A index error in the game code has occured. Please try again. If the issue presists, please contact the developer."
+            echo ""
+            echo "More Info"
+            echo "----------------------"
+            echo "Game Version: $version"
+            echo "Python Version: $python_version"
+            echo ""
+            echo "Python Output"
+            echo "----------------------"
+            cat "$tempfile"
+            exit 1
         else
             clear
             echo "Error 0000"
