@@ -23,7 +23,7 @@ if [ "$1" = "--py-command" ]; then
 fi
 
 ## [--debug] Command
-if [[ "$@" = *" --debug"* ]]; then
+if [[ "$@" = *"--debug"* ]]; then
     debug="y"
     echo="Debug mode is running..."
     sleep 1
