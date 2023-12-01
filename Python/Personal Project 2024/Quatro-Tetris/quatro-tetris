@@ -186,7 +186,8 @@ if [ -f "$python_file" ]; then
     # Checks the exit code given by the game
     exit_code=$?
     if [ $exit_code -ne 0 ]; then # Checks if the exit was due to an error
-        # If the exit was due to an error, the following error code is given
+        # If the exit was due to an error, it detects the type of python error that was encountered and throws an error message, which will include more information if the program was run in debug mode.
+        clear
         if [[ "$(cat "$tempfile")" =~ "SyntaxError" ]]; then
             echo "Error 0005"
             echo "----------------------"
