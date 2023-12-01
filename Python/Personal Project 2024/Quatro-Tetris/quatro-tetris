@@ -121,7 +121,7 @@ if [ -f "$python_file" ]; then
     exit_code=$?
     if [ $exit_code -ne 0 ]; then # Checks if the exit was due to an error
         # If the exit was due to an error, the following error code is given
-        if [ "$(cat "$tempfile")" =~ "SyntaxError" ]; then
+        if [[ "$(cat "$tempfile")" =~ "SyntaxError" ]]; then
             echo "Error 0005"
             echo "----------------------"
             echo "A syntax error in the game code has occured. Please try again. If the issue presists, please contact the developer."
