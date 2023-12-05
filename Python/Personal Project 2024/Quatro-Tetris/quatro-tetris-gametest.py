@@ -42,7 +42,7 @@ while running:
     screen.fill((0, 0, 0))
 
     # Create a surface and defines its length and width
-    surf = pygame.surface((50, 50))
+    surf = pygame.Surface((50, 50))
 
     # Gives the surface a color to sepeerate it from the backround
     surf.fill((255, 255, 255))
