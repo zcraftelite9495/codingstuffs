@@ -8,3 +8,4 @@
 * I was able to figure out the TypeError was caused by me not capitalizing a letter. Beatuiful.
 * BEHOLD I HAVE CODED A WHITE SQUARE, IN LIKE 800 LINES OF CODE
 * Alright, I found a problem in the executable in which it doesnt properly detect the pygame version, so I am fixing it
+* I am adding a client-info command option to just show the client info that the executable sees in order for it to be debugged easily

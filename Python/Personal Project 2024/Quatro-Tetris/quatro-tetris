@@ -25,6 +25,7 @@ fi
 ## [--debug] Command
 if [[ "${@:1:9}" =~ "--debug" ]]; then
     debug="y"
+    clear
     echo "Debug mode is running..."
     sleep 1
     clear
@@ -60,13 +61,41 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
     clear
 fi
 
+## [--client-info] Command
+if [ "$1" = "--client-info" ]; then
+    client_info_only="y"
+fi
+
 ## Main Executable File
 
 # Clears the screen to prepare for game run
 clear
 
+# Tells the user what part of the program is running
+echo "Checking Linux Distribution..."
+
+# For debug purposes, reads the contents of the '/etc/os-release' file into variables to detect the linux distribution that is running
+source <(grep -E "^(NAME|VERSION)=" /etc/os-release) # Gets the Linux Distribution from /etc/os-release and extracts the 'NAME' and 'VERSION' variables
+distro_name=$NAME # Renames the variable 'NAME'
+distro_version=$VERSION # Renames the variable 'VERSION'
+distro_info="$distro_name $distro_version" # Combines the new variables
+unset NAME
+unset VERSION
+
+# Clears the screen because the process was finished
+clear
+
 # Tells the user what part of this file is running
-echo "Checking Python Version..."
+echo "Checking 'pygame' version..."
+sleep 1 # Adds fake delay so text displays longer
+
+pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)')
+
+# Clears the screen becaues the process was finished
+clear
+
+# Tells the user what part of this file is running
+echo "Checking Python Command..."
 sleep 1 # Adds fake delay so text displays longer
 
 if [ "$python_set" != "y" ]; then
@@ -95,30 +124,19 @@ if [ "$python_set" != "y" ]; then
     fi
 fi
 
-# Prompts the user to make sure the system detected the correct python prefix
+# Clears the screen because the process was finished
 clear
-read -p "Quatro Tetris has detected you use the '$python_command' prefix, is this correct? (y/n): " confirmation_1
-if [ "$confirmation_1" = "n" ]; then
-    echo "Try changing your configuration and try again. Or use --py-command and then your python command."
-    exit 1
+
+# Tells the user what part of this file is running
+echo "Checking Python Version..."
+sleep 1 # Adds fake delay so text displays longer
+
+# Detects the exact version of python the user is running and saves it to a variable
+python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
+
+if [ "$client_info_only" = "y" ]; then
+    exit 0
 fi
-
-# Clears the screen because the process was finished
-clear
-
-# Tells the user what part of the program is running
-echo "Checking Linux Distribution..."
-
-# For debug purposes, reads the contents of the '/etc/os-release' file into variables to detect the linux distribution that is running
-source <(grep -E "^(NAME|VERSION)=" /etc/os-release) # Gets the Linux Distribution from /etc/os-release and extracts the 'NAME' and 'VERSION' variables
-distro_name=$NAME # Renames the variable 'NAME'
-distro_version=$VERSION # Renames the variable 'VERSION'
-distro_info="$distro_name $distro_version" # Combines the new variables
-unset NAME
-unset VERSION
-
-# Clears the screen because the process was finished
-clear
 
 # Prompts the user for what version of Quatro Tetris they want to run
 read -p "Enter the game version number to run (e.g., v0.0.1, v0.0.2): " version
@@ -142,11 +160,6 @@ for module in "${modules[@]}"; do
     fi
 done
 
-# Adds fake delay to show text on screen longer
-sleep 1
-
-# Clears the screen because the process was finished
-clear
 
 # Tells the user what part of the program is running
 echo "Checking Game Version..."
@@ -157,12 +170,6 @@ python_file="quatro-tetris-$version.py"
 
 # Clears the screen because the process has finished
 clear
-
-# Detects the version of the 'pygame' library the user is running and saves it to a variable
-pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)')
-
-# Detects the exact version of python the user is running and saves it to a variable
-python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
 
 # Creates a temporarily file to store data
 tempfile=$(mktemp)
