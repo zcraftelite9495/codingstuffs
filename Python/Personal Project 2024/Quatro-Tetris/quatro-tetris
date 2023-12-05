@@ -89,7 +89,7 @@ clear
 echo "Checking 'pygame' version..."
 sleep 1 # Adds fake delay so text displays longer
 
-pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)')
+pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | sed 's/Version: //')
 
 # Clears the screen becaues the process was finished
 clear
