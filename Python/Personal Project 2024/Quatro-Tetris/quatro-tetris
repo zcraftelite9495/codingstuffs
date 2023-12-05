@@ -136,6 +136,9 @@ python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
 
 if [ "$client_info_only" = "y" ]; then
     exit 0
+    echo "Python Version: $python_version"
+    echo "Pygame Version: $pygame_version"
+    echo "Linux Distro: $distro_info"
 fi
 
 # Prompts the user for what version of Quatro Tetris they want to run
