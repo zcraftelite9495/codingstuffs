@@ -159,8 +159,7 @@ python_file="quatro-tetris-$version.py"
 clear
 
 # Detects the version of the 'pygame' library the user is running and saves it to a variable
-pygame_output=$(pip show pygame)
-pygame_version=$(echo "$pygame_output" | awk '/version:/{print $2}')
+pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)')
 
 # Detects the exact version of python the user is running and saves it to a variable
 python_version=$($python_command --version 2>&1 | cut -d' ' -f2)

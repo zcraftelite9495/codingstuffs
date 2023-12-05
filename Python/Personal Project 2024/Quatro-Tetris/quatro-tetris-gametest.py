@@ -48,5 +48,9 @@ while running:
     surf.fill((255, 255, 255))
     rect = surf.get_rect()
 
+    # Draws 'surf' onto the screen at the center
+    screen.blit(surf, (SCREEN_WIDTH/2, SCREEN_HEIGHT/2))
+    pygame.display.flip()
+
 # Quits the game
 pygame.quit()
