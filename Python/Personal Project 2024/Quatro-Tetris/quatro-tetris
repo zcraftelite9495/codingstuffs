@@ -85,12 +85,6 @@ unset VERSION
 # Clears the screen because the process was finished
 clear
 
-# Tells the user what part of this file is running
-echo "Checking 'pygame' version..."
-sleep 1 # Adds fake delay so text displays longer
-
-pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | sed 's/Version: //')
-
 # Clears the screen becaues the process was finished
 clear
 
@@ -136,6 +130,12 @@ python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
 
 # Clears the screen because the process was finished
 clear
+
+# Tells the user what part of this file is running
+echo "Checking 'pygame' version..."
+sleep 1 # Adds fake delay so text displays longer
+
+pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | sed 's/Version: //')
 
 if [ "$client_info_only" = "y" ]; then
     echo "Python Version: $python_version"
