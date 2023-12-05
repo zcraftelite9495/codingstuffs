@@ -137,6 +137,9 @@ sleep 1 # Adds fake delay so text displays longer
 
 pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | sed 's/Version: //')
 
+# Clears the screen because the process was finished
+clear
+
 if [ "$client_info_only" = "y" ]; then
     echo "Python Version: $python_version"
     echo "Pygame Version: $pygame_version"
