@@ -134,6 +134,9 @@ sleep 1 # Adds fake delay so text displays longer
 # Detects the exact version of python the user is running and saves it to a variable
 python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
 
+# Clears the screen because the process was finished
+clear
+
 if [ "$client_info_only" = "y" ]; then
     echo "Python Version: $python_version"
     echo "Pygame Version: $pygame_version"
