@@ -74,7 +74,7 @@ clear
 
 # Tells the user what part of the program is running
 echo "Checking Linux Distribution..."
-sleep 1 # Adds fake delay so text displays longer
+sleep 0.5 # Adds fake delay so text displays longer
 
 # For debug purposes, reads the contents of the '/etc/os-release' file into variables to detect the linux distribution that is running
 source <(grep -E "^(NAME|VERSION)=" /etc/os-release) # Gets the Linux Distribution from /etc/os-release and extracts the 'NAME' and 'VERSION' variables
@@ -104,7 +104,7 @@ clear
 
 # Tells the user what part of this file is running
 echo "Checking Python Command..."
-sleep 1 # Adds fake delay so text displays longer
+sleep 0.5 # Adds fake delay so text displays longer
 
 if [ "$python_set" != "y" ]; then
     # Detects the type of python command you have installed on your system
@@ -137,7 +137,7 @@ clear
 
 # Tells the user what part of this file is running
 echo "Checking Python Version..."
-sleep 1 # Adds fake delay so text displays longer
+sleep 0.5 # Adds fake delay so text displays longer
 
 # Detects the exact version of python the user is running and saves it to a variable
 python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
@@ -147,7 +147,7 @@ clear
 
 # Tells the user what part of this file is running
 echo "Checking 'pygame' version..."
-sleep 1 # Adds fake delay so text displays longer
+sleep 0.5 # Adds fake delay so text displays longer
 
 pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | sed 's/Version: //')
 
@@ -169,7 +169,7 @@ clear
 
 # Tells the user what part of this file is running
 echo "Checking Requirements..."
-sleep 1 # Adds fake delay to show text on screen longer
+sleep 0.5 # Adds fake delay to show text on screen longer
 
 # Sets the modules required for the program to be ran
 modules=("pygame" "random" "time" "sound" "configparser" "sys")
@@ -188,7 +188,7 @@ done
 
 # Tells the user what part of the program is running
 echo "Checking Game Version..."
-sleep 1
+sleep 0.5
 
 # Sets the filename based on the version selected by the user
 python_file="quatro-tetris-$version.py"
