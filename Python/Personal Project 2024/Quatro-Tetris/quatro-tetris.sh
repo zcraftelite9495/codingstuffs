@@ -1,20 +1,29 @@
 #!/bin/bash
+
 # Tells the user what part of this file is running
 echo "Checking Requirements..."
 
 # Sets the modules required for the program to be ran
 modules=("pygame" "random" "time" "easing" "soundmanager" "configparser")
 
+# Creates a progress bar
+progress="$(progress -s 100 -w '[:bar]' -e '[:complete]' -d '[:eta]')"
+
 # Checks weather or not those modules are installed, and installs them if they arent
 for module in "${modules[@]}"; do
     if python -c "import $module" &>/dev/null; then
         echo "$module - Found"
+        progress -c 10
     else
         echo "$module - Not Found"
         echo "Installing $module..."
         pip install $module
+        progress -c 10
     fi
 done
+
+# Clears the progress bar
+progress -c 0
 
 # Prompts the user for what version of Quatro Tetris they want to run
 read -p "Enter the Python version number to run (e.g., v0.0.1, v0.0.2): " quatro_version
