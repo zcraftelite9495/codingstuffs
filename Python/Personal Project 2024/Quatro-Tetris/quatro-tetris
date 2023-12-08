@@ -155,6 +155,8 @@ pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | s
 clear
 
 if [ "$client_info_only" = "y" ]; then
+    echo "Client Info"
+    echo "----------------------"
     echo "Executable Version: $executable_version"
     echo "Python Version: $python_version"
     echo "Pygame Version: $pygame_version"
@@ -202,6 +204,8 @@ tempfile=$(mktemp)
 # Runs the game
 if [ -f "$python_file" ]; then
     if [ "$debug" = "y" ]; then
+        echo "Debug Info"
+        echo "----------------------"
         echo "Game Version: $version"
         echo "Executable Version: $executable_version"
         echo "Python Version: $python_version"
@@ -227,7 +231,7 @@ if [ -f "$python_file" ]; then
             echo "A SyntaxError in the game code has occured. Please try again. If the issue presists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
-                echo "More Info"
+                echo "Client Info"
                 echo "----------------------"
                 echo "Game Version: $version"
                 echo "Executable Version: $executable_version"
@@ -247,7 +251,7 @@ if [ -f "$python_file" ]; then
             echo "A TypeError in the game code has occured. Please try again. If the issue presists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
-                echo "More Info"
+                echo "Client Info"
                 echo "----------------------"
                 echo "Game Version: $version"
                 echo "Executable Version: $executable_version"
@@ -267,7 +271,7 @@ if [ -f "$python_file" ]; then
             echo "A IndexError in the game code has occured. Please try again. If the issue presists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
-                echo "More Info"
+                echo "Client Info"
                 echo "----------------------"
                 echo "Game Version: $version"
                 echo "Executable Version: $executable_version"
@@ -288,7 +292,7 @@ if [ -f "$python_file" ]; then
             echo "A unexpected error in the game code has occured. Please try again. If the issue persists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
-                echo "More Info"
+                echo "Client Info"
                 echo "----------------------"
                 echo "Game Version: $version"
                 echo "Executable Version: $executable_version"
