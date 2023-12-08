@@ -87,6 +87,18 @@ unset VERSION
 # Clears the screen because the process was finished
 clear
 
+# Tells the user what part of the program is running
+echo "Checking Snap Version"
+
+# Check if snap is installed
+if command -v snap > /dev/null; then
+  # If snap is installed, save the version to a variable
+  snap_version=$(snap --version | grep -oE 'snap[[:space:]]+([0-9.]+)' | sed 's/^snap //' | sed 's/[[:space:]]//g')
+else
+  # If snap is not installed, save "Not Installed" to the variable
+  snap_version="Not Installed"
+fi
+
 # Clears the screen becaues the process was finished
 clear
 
@@ -146,6 +158,7 @@ if [ "$client_info_only" = "y" ]; then
     echo "Executable Version: $executable_version"
     echo "Python Version: $python_version"
     echo "Pygame Version: $pygame_version"
+    echo "Snap Version: $snap_version"
     echo "Linux Distro: $distro_info"
     exit 0
 fi
@@ -193,8 +206,9 @@ if [ -f "$python_file" ]; then
         echo "Executable Version: $executable_version"
         echo "Python Version: $python_version"
         echo "Pygame Version: $pygame_version"
+        echo "Snap Version: $snap_version"
         echo "Linux Distro: $distro_info"
-        sleep 1.5
+        sleep 5
         clear
     fi
     echo "Running Quatro Tetris ($version)"
@@ -219,6 +233,7 @@ if [ -f "$python_file" ]; then
                 echo "Executable Version: $executable_version"
                 echo "Python Version: $python_version"
                 echo "Pygame Version: $pygame_version"
+                echo "Snap Version: $snap_version"
                 echo "Linux Distro: $distro_info"
                 echo ""
                 echo "Python Output"
@@ -238,6 +253,7 @@ if [ -f "$python_file" ]; then
                 echo "Executable Version: $executable_version"
                 echo "Python Version: $python_version"
                 echo "Pygame Version: $pygame_version"
+                echo "Snap Version: $snap_version"
                 echo "Linux Distro: $distro_info"
                 echo ""
                 echo "Python Output"
@@ -257,6 +273,7 @@ if [ -f "$python_file" ]; then
                 echo "Executable Version: $executable_version"
                 echo "Python Version: $python_version"
                 echo "Pygame Version: $pygame_version"
+                echo "Snap Version: $snap_version"
                 echo "Linux Distro: $distro_info"
                 echo ""
                 echo "Python Output"
@@ -277,6 +294,7 @@ if [ -f "$python_file" ]; then
                 echo "Executable Version: $executable_version"
                 echo "Python Version: $python_version"
                 echo "Pygame Version: $pygame_version"
+                echo "Snap Version: $snap_version"
                 echo "Linux Distro: $distro_info"
                 echo ""
                 echo "Python Output"
