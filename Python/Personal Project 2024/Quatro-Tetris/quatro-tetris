@@ -74,6 +74,7 @@ clear
 
 # Tells the user what part of the program is running
 echo "Checking Linux Distribution..."
+sleep 1 # Adds fake delay so text displays longer
 
 # For debug purposes, reads the contents of the '/etc/os-release' file into variables to detect the linux distribution that is running
 source <(grep -E "^(NAME|VERSION)=" /etc/os-release) # Gets the Linux Distribution from /etc/os-release and extracts the 'NAME' and 'VERSION' variables
