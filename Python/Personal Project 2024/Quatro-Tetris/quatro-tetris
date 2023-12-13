@@ -40,7 +40,6 @@ function display_client_info
     echo "Pygame Version: $pygame_version"
     echo "Snap Version: $snap_version"
     echo "Linux Distro: $distro_info"
-    exit 0
 }
 ## Variable Resets
 executable_version="1.2.8"
