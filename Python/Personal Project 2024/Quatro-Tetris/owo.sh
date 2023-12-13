@@ -1,13 +1,19 @@
-#!/bin/bash
+tasks=("task1" "task2" "task3" "task4" "task5" "task6" "task7")
 
-# Check if snap is installed
-if command -v snap > /dev/null; then
-  # If snap is installed, save the version to a variable
-  SNAP_VERSION=$(snap --version | grep -oE 'snap[[:space:]]+([0-9.]+)' | sed 's/^snap //' | sed 's/[[:space:]]//g')
-else
-  # If snap is not installed, save "Not Installed" to the variable
-  SNAP_VERSION="Not Installed"
-fi
+custom_tasks=("Checking Linux Distribution" "Checking 'snap' version" "Checking Python version" "Verifying Python version" "Checking 'pygame' version" "Checking Requirements" "Checking Modules" "Checking Game Version")
 
-# Print the version of snap or "Not Installed"
-echo "Snap version: $SNAP_VERSION"
+function display_loading_tasks {
+    for task in "${tasks[@]}" ; do
+        custom_task=${custom_tasks[$task]}
+        if [ "$task" = "done" ]; then
+            echo "| ✓ | $custom_task"
+        else
+            echo "| - | $custom_task..."
+        fi
+    done
+}
+
+display_loading_tasks
+
+task1="done"
+display_loading_tasks 

@@ -1,24 +1,68 @@
 #!/bin/bash
 
+# Gets into game directory
+cd ~
+cd Games/Quatro\ Tetris
+
+## Setting Default Variables
+
+tasks=("task1" "task2" "task3" "task4" "task5" "task6" "task7")
+
+custom_tasks=("Linux Distribution" "'snap' Version" "Python Command" "Python Version" "'pygame' Version" "Requirements" "Modules" "Game Version")
+
+## Definining Functions
+
+# Splash Screen Function
+function splash 
+{
+    cat splash.txt
+}
+
+# Line Function
+function line
+{
+    echo
+    tput cols > nul
+    for ((i=1; i<=$COLUMNS; i++)); do
+        echo -n "-"
+    done
+    echo
+}
+
+# Client Info Function
+function display_client_info 
+{
+    echo "Client Info"
+    line
+    echo "Game Version: $version"
+    echo "Executable Version: $executable_version"
+    echo "Python Version: $python_version"
+    echo "Pygame Version: $pygame_version"
+    echo "Snap Version: $snap_version"
+    echo "Linux Distro: $distro_info"
+    exit 0
+}
 ## Variable Resets
 executable_version="1.2.8"
 python_command=""
 
 ## [--help] Command
 if [ "$1" = "--help" ]; then
-    echo "Quatro Tetris Help"
-    echo "-----------------------------------"
+    splash
+    line
     echo "Command Operators"
     echo "-h or --help           | Shows this menu"
     echo "--py-command [command] | Disables the automatic detection of your Python Command and sets the Python Command value"
-    echo ""
-    echo "-----------------------------------"
+    line
     exit 1
 fi
 
 ## [--py-command] Command
 if [ "$1" = "--py-command" ]; then
     python_command="$2"
+    clear
+    splash
+    line
     echo "Python Command was set to $python_command"
     python_set="y"
 fi
@@ -27,6 +71,8 @@ fi
 if [[ "${@:1:9}" =~ "--debug" ]]; then
     debug="y"
     clear
+    splash
+    line
     echo "Debug mode is running..."
     sleep 1
     clear
@@ -48,14 +94,19 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
         git clone https://github.com/zcraftelite9495/codingstuffs.git
 
         # Copy the Quatro-Tetris folder to the desired destination
-        cp -R codingstuffs/Python/Personal\ Project\ 2024/Quatro-Tetris/* /Games/Quatro\ Tetris
+        cp -R codingstuffs/Python/Personal\ Project\ 2024/Quatro-Tetris/* ~/Games/Quatro\ Tetris
 
         # Clean up temporary files
         rm -rf codingstuffs
-
+        clear
+        splash
+        line
         echo "Update has been installed :3"
         exit 0
     else
+        clear
+        splash
+        line
         echo "You need to enter your password in order to update the file, please rerun the command and enter your password"
         exit 1
     fi
@@ -73,6 +124,8 @@ fi
 clear
 
 # Tells the user what part of the program is running
+splash
+line
 echo "Checking Linux Distribution..."
 sleep 0.5 # Adds fake delay so text displays longer
 
@@ -88,7 +141,10 @@ unset VERSION
 clear
 
 # Tells the user what part of the program is running
+splash
+line
 echo "Checking Snap Version"
+sleep 0.5 # Adds fake delay so text displays longer
 
 # Check if snap is installed
 if command -v snap > /dev/null; then
@@ -103,6 +159,8 @@ fi
 clear
 
 # Tells the user what part of this file is running
+splash
+line
 echo "Checking Python Command..."
 sleep 0.5 # Adds fake delay so text displays longer
 
@@ -115,19 +173,19 @@ if [ "$python_set" != "y" ]; then
     elif command -v py &>/dev/null; then # Checks to see if you use 'py'
         # Spits out an error stating that the 'py' command is not compatible with this script
         echo "Error 0001"
-        echo "----------------------"
+        line
         echo "It appears as if you are using the 'py' command only as your python interpreter. Quatro Tetris is unable to run using the 'py' interpreter. Please install 'python' or 'python3'."
         exit 1
     elif command -v python2 &>/dev/null; then # Checks to see if you only have 'python2' installed
         # Spits out an error stating that Quatro Tetris cannot be run with Python 2
         echo "Error 0002"
-        echo "----------------------"
+        line
         echo "It appears that you do not have a valid Python 3 command interpreter. Quatro Tetris is not able to be ran via Python 2. Please install a Python 3 Interpreter and try again."
         exit 1
     else
         # Spits out an error stating the Quatro Tetris cannot be ran without Python
         echo "Error 0003"
-        echo "----------------------"
+        line
         echo "It appears that you do not have a valid Python 3 command interpreter. Quatro Tetris cannot be run without Python 3. Please install a Python 3 Interpreter and try again."
     fi
 fi
@@ -136,6 +194,8 @@ fi
 clear
 
 # Tells the user what part of this file is running
+splash
+line
 echo "Checking Python Version..."
 sleep 0.5 # Adds fake delay so text displays longer
 
@@ -146,6 +206,8 @@ python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
 clear
 
 # Tells the user what part of this file is running
+splash
+line
 echo "Checking 'pygame' version..."
 sleep 0.5 # Adds fake delay so text displays longer
 
@@ -154,22 +216,23 @@ pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | s
 # Clears the screen because the process was finished
 clear
 
+# If the client info command modifier was used then it quits and displays the client info
 if [ "$client_info_only" = "y" ]; then
-    echo "Client Info"
-    echo "----------------------"
-    echo "Executable Version: $executable_version"
-    echo "Python Version: $python_version"
-    echo "Pygame Version: $pygame_version"
-    echo "Snap Version: $snap_version"
-    echo "Linux Distro: $distro_info"
+    splash
+    line
+    display_client_info
     exit 0
 fi
 
 # Prompts the user for what version of Quatro Tetris they want to run
+splash
+line
 read -p "Enter the game version number to run (e.g., v0.0.1, v0.0.2): " version
 clear
 
 # Tells the user what part of this file is running
+splash
+line
 echo "Checking Requirements..."
 sleep 0.5 # Adds fake delay to show text on screen longer
 
@@ -187,8 +250,12 @@ for module in "${modules[@]}"; do
     fi
 done
 
+# Clears the screen because the process was finished
+clear
 
 # Tells the user what part of the program is running
+splash
+line
 echo "Checking Game Version..."
 sleep 0.5
 
@@ -204,17 +271,12 @@ tempfile=$(mktemp)
 # Runs the game
 if [ -f "$python_file" ]; then
     if [ "$debug" = "y" ]; then
-        echo "Debug Info"
-        echo "----------------------"
-        echo "Game Version: $version"
-        echo "Executable Version: $executable_version"
-        echo "Python Version: $python_version"
-        echo "Pygame Version: $pygame_version"
-        echo "Snap Version: $snap_version"
-        echo "Linux Distro: $distro_info"
+        display_client_info
         sleep 5
         clear
     fi
+    splash
+    line
     echo "Running Quatro Tetris ($version)"
     sleep 1
     clear
@@ -227,82 +289,54 @@ if [ -f "$python_file" ]; then
         clear
         if [[ "$(cat "$tempfile")" =~ "SyntaxError" ]]; then
             echo "Error 0005"
-            echo "----------------------"
+            line
             echo "A SyntaxError in the game code has occured. Please try again. If the issue presists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
-                echo "Client Info"
-                echo "----------------------"
-                echo "Game Version: $version"
-                echo "Executable Version: $executable_version"
-                echo "Python Version: $python_version"
-                echo "Pygame Version: $pygame_version"
-                echo "Snap Version: $snap_version"
-                echo "Linux Distro: $distro_info"
+                display_client_info
                 echo ""
                 echo "Python Output"
-                echo "----------------------"
+                line
                 cat "$tempfile"
             fi
             exit 1
         elif [[ "$(cat "$tempfile")" =~ "TypeError" ]]; then
             echo "Error 0006"
-            echo "----------------------"
+            line
             echo "A TypeError in the game code has occured. Please try again. If the issue presists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
-                echo "Client Info"
-                echo "----------------------"
-                echo "Game Version: $version"
-                echo "Executable Version: $executable_version"
-                echo "Python Version: $python_version"
-                echo "Pygame Version: $pygame_version"
-                echo "Snap Version: $snap_version"
-                echo "Linux Distro: $distro_info"
+                display_client_info
                 echo ""
                 echo "Python Output"
-                echo "----------------------"
+                line
                 cat "$tempfile"
             fi
             exit 1
         elif [[ "$(cat "$tempfile")" =~ "IndexError" ]]; then
             echo "Error 0007"
-            echo "----------------------"
+            line
             echo "A IndexError in the game code has occured. Please try again. If the issue presists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
-                echo "Client Info"
-                echo "----------------------"
-                echo "Game Version: $version"
-                echo "Executable Version: $executable_version"
-                echo "Python Version: $python_version"
-                echo "Pygame Version: $pygame_version"
-                echo "Snap Version: $snap_version"
-                echo "Linux Distro: $distro_info"
+                display_client_info
                 echo ""
                 echo "Python Output"
-                echo "----------------------"
+                line
                 cat "$tempfile"
             fi
             exit 1
         else
             clear
             echo "Error 0000"
-            echo "----------------------"
+            line
             echo "A unexpected error in the game code has occured. Please try again. If the issue persists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
-                echo "Client Info"
-                echo "----------------------"
-                echo "Game Version: $version"
-                echo "Executable Version: $executable_version"
-                echo "Python Version: $python_version"
-                echo "Pygame Version: $pygame_version"
-                echo "Snap Version: $snap_version"
-                echo "Linux Distro: $distro_info"
+                display_client_info
                 echo ""
                 echo "Python Output"
-                echo "----------------------"
+                line
                 cat "$tempfile"
             fi
             exit 1
@@ -311,14 +345,14 @@ if [ -f "$python_file" ]; then
     sleep 1
     clear
     echo "Quatro Tetris $version"
-    echo "----------------------"
+    line
     echo "Thanks for playing"
     echo "Give feedback on Twitter or Instagram by mentioning @zcraftelite"
     echo ""
 else
     clear
     echo "Error 0004"
-    echo "----------------------"
+    line
     echo "The Version of the game you are trying to run ($version), does not exist or is not currently downloaded. Please ensure you downloaded the entire Quatro-Tetris folder from the repository, and that you typed the version number in correctly (v#.#.#)"
     echo ""
     exit 1
