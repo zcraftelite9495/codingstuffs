@@ -44,8 +44,14 @@ function display_client_info
 }
 ## Variable Resets
 executable_version="1.2.9-05"
-new_executable_version="1.2.9-06"
+new_executable_version="$(quatro-tetris --version-basic)"
 python_command=""
+
+## [--version-basic]
+if [ "$1" = "--version-basic" ]; then
+    echo "$executable_version"
+    exit 0
+fi
 
 ## [--help] Command
 if [ "$1" = "--help" ]; then
@@ -55,7 +61,7 @@ if [ "$1" = "--help" ]; then
     echo "-h or --help           | Shows this menu"
     echo "--py-command [command] | Disables the automatic detection of your Python Command and sets the Python Command value"
     line
-    exit 1
+    exit 0
 fi
 
 ## [--py-command] Command
@@ -153,7 +159,7 @@ clear
 # Tells the user what part of the program is running
 splash
 line
-echo "Checking Snap Version"
+echo "Checking Snap Version..."
 sleep 0.5 # Adds fake delay so text displays longer
 
 # Check if snap is installed
