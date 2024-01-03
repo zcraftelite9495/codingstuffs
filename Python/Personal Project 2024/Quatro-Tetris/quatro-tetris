@@ -110,7 +110,7 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
         splash
         line
         echo "Update has been installed :3"
-        echo "Your now using Quatro Tetris Version $executable_version. Have fun playing."
+        echo "Your now using Quatro Tetris Version $(cat version.txt). Have fun playing."
         exit 0
     else
         clear
