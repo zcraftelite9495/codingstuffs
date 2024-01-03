@@ -1,11 +1,52 @@
 # Personal Project Log
 
-## December 5th 2023
-### ##h ##m ##s
-* Started Personal Project Log
-* The Learning Curve for 'pygame' is extrememely hard. Right now I am following along with the RealPython guide to help me learn it
-* Currently I am trying to figure out why I am getting a type error when I run my example pygame program
-* I was able to figure out the TypeError was caused by me not capitalizing a letter. Beatuiful.
-* BEHOLD I HAVE CODED A WHITE SQUARE, IN LIKE 800 LINES OF CODE
-* Alright, I found a problem in the executable in which it doesnt properly detect the pygame version, so I am fixing it
-* I am adding a client-info command option to just show the client info that the executable sees in order for it to be debugged easily
+## Nov 27 2023
+### 3h 14m
+* Updated File Structure
+
+## Nov 28 2023
+### 4h 28m
+* Added materials
+* Updated readme 
+* Added executable file
+* Added Error Code Detection
+* Added Placeholder
+* Fixed bugs
+
+## Nov 29 2023
+### 2h 7m
+* Fixed Error Code Detection
+* Expanded User Interface
+* Fixed Bugs
+
+## Nov 30 2023
+### 36m
+* Tested code examples
+* Fixed Bugs
+
+## Dec 01 2023
+### 2h 11m
+* Started GameTest
+* Updated Command Line Arguments for Debugging
+* Fixed and Expanded ErrorDetect API
+* Fixed Bugs
+
+## Dec 05 2023
+### 3h 34m
+* Added more debugging features for future me
+* Fixed Bugs
+
+## Dec 08 2023
+### 4h 14m
+* Improved Text-Based UI
+* Fixed Bugs
+
+## Dec 13 2023
+### 1h 16m
+* Improved Text-Based UI
+* Started v0.0.1 Game Development
+* Fixed Bugs
+
+## Jan 03 2024
+### ?h ?m
+* Completed a required AVID Personal Project Check In
