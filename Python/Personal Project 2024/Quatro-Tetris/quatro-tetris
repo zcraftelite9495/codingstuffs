@@ -43,6 +43,7 @@ function display_client_info
 }
 ## Variable Resets
 executable_version="1.2.9-02"
+next_executable_version="1.2.9-03"
 python_command=""
 
 ## [--help] Command
