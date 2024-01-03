@@ -42,7 +42,7 @@ function display_client_info
     echo "Linux Distro: $distro_info"
 }
 ## Variable Resets
-executable_version="1.2.9-01"
+executable_version="1.2.9-02"
 python_command=""
 
 ## [--help] Command
@@ -109,6 +109,7 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
         splash
         line
         echo "Update has been installed :3"
+        echo "Your now using Quatro Tetris Version $executable_version. Have fun playing."
         exit 0
     else
         clear
