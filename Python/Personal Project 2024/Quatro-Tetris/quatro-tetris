@@ -261,7 +261,7 @@ modules=("pygame" "pygame-ce" "random" "time" "sound" "configparser" "sys")
 
 # Checks weather or not those modules are installed, and installs them if they arent
 for module in "${modules[@]}"; do
-    if $python_command -c "import $module" 2>&1 | grep -q "WARNING"; then
+    if $python_command -c "import $module" 2>&1 | grep -q "ModuleNotFoundError"; then
         echo "$module - Not Found"
         echo "Installing $module..."
         pip install $module
