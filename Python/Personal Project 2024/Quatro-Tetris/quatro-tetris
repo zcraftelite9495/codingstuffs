@@ -247,7 +247,6 @@ fi
 # Prompts the user for what version of Quatro Tetris they want to run
 splash
 line
-if [ "$debug" = "y" ]; then
 version="1.9.3"
 echo "Automatically selected newest version ($version)"
 echo "Press enter to confirm or type a custom version name and hit enter"
