@@ -1,2 +1,2 @@
 # Imports the Pygame Community Edition Modules
-import pygame-ce
+import pygame
