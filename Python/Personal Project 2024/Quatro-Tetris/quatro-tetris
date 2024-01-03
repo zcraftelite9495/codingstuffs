@@ -247,7 +247,14 @@ fi
 # Prompts the user for what version of Quatro Tetris they want to run
 splash
 line
-read -p "Enter the game version number to run (e.g., v0.0.1, v0.0.2): " version
+if [ "$debug" = "y" ]; then
+version="1.9.3"
+echo "Automatically selected newest version ($version)"
+echo "Press enter to confirm or type a custom version name and hit enter"
+read -p ">" proposed_version
+if [ "$proposed_version" != "" ]; then
+    version="$proposed_version"
+fi
 clear
 
 # Tells the user what part of this file is running
