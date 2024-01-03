@@ -62,3 +62,4 @@
 * Updated Project Planning Calendar Substantially
 * Completed a required AVID Personal Project Check In
 * Created a To Do List file for me to keep track of what I need to do
+* I am going to be watching a 2 hour tutorial video on how to build normal tetris in pygame, that way I can get the basics of the game all down.
