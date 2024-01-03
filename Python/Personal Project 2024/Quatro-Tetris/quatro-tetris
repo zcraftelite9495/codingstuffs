@@ -32,8 +32,7 @@ function line
 # Client Info Function
 function display_client_info 
 {
-    echo "Client Info"
-    line
+    echo "Client Info" | line
     echo "Game Version: $version"
     echo "Executable Version: $executable_version"
     echo "Python Version: $python_version"
@@ -43,7 +42,7 @@ function display_client_info
     echo "Linux Distro: $distro_info"
 }
 ## Variable Resets
-executable_version="1.2.9"
+executable_version="1.2.9-01"
 python_command=""
 
 ## [--help] Command
