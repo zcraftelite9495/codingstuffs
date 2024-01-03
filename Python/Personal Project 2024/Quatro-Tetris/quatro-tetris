@@ -38,6 +38,7 @@ function display_client_info
     echo "Executable Version: $executable_version"
     echo "Python Version: $python_version"
     echo "Pygame Version: $pygame_version"
+    echo "Pygame Community Edition Version: $pygame_ce_version"
     echo "Snap Version: $snap_version"
     echo "Linux Distro: $distro_info"
 }
@@ -211,6 +212,17 @@ echo "Checking 'pygame' version..."
 sleep 0.5 # Adds fake delay so text displays longer
 
 pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | sed 's/Version: //')
+
+# Clears the screen because the process was finished
+clear
+
+# Tells the user what part of this file is running
+splash
+line
+echo "Checking 'pygame-ce' version..."
+sleep 0.5 # Adds fake delay so text displays longer
+
+pygame_ce_version=$(pip show pygame-ce | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | sed 's/Version: //')
 
 # Clears the screen because the process was finished
 clear
