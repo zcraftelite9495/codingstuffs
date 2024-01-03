@@ -32,7 +32,8 @@ function line
 # Client Info Function
 function display_client_info 
 {
-    echo "Client Info" | line
+    echo "Client Info"
+    line
     echo "Game Version: $version"
     echo "Executable Version: $executable_version"
     echo "Python Version: $python_version"
