@@ -1,5 +1,14 @@
 # Personal Project Log
 
+## Nov 20 2023
+### 0h 23m
+* Added Personal Project Success Criteria
+
+## Nov 21 2023
+### 1h 18m
+* Finished Learning Python 3
+* Updated Project Materials
+
 ## Nov 27 2023
 ### 3h 14m
 * Updated File Structure
@@ -14,13 +23,13 @@
 * Fixed bugs
 
 ## Nov 29 2023
-### 2h 7m
+### 2h 07m
 * Fixed Error Code Detection
 * Expanded User Interface
 * Fixed Bugs
 
 ## Nov 30 2023
-### 36m
+### 0h 36m
 * Tested code examples
 * Fixed Bugs
 
@@ -48,5 +57,8 @@
 * Fixed Bugs
 
 ## Jan 03 2024
-### ?h ?m
+### ?h ??m
+* Updated This Project Log Substanstially
+* Updated Project Planning Calendar Substantially
 * Completed a required AVID Personal Project Check In
+* Created a To Do List file for me to keep track of what I need to do
