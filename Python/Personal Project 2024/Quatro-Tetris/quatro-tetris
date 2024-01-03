@@ -86,6 +86,13 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
 
     # Check if the password was entered successfully
     if [[ $? -eq 0 ]]; then
+        # Display update splash screen
+        clear
+        splash
+        line
+        echo "Updating Quatro Tetris from the codingstuffs repository..."
+        echo "Thank you for supporting my work!   -ZcraftElite"
+        echo ""
         # Run the script with sudo permissions
         echo "$password" | sudo -S curl -LJ -o /bin/quatro-tetris \
         https://raw.githubusercontent.com/zcraftelite9495/codingstuffs/main/Python/Personal%20Project%202024/Quatro-Tetris/quatro-tetris
