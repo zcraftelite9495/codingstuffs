@@ -82,6 +82,10 @@ fi
 if [[ "${@:1:9}" =~ "--update" ]]; then
     debug="y"
     # Prompt the user for their password using a graphical popup
+    splash
+    line
+    echo "Waiting for password entry..."
+    echo "Quatro-Tetris will not use your password for anything else after this entry or upload it to the web. Dont believe me? Check out our code on our github repository :3"
     password=$(zenity --password --title="Update Application" --timeout=10)
 
     # Check if the password was entered successfully
@@ -94,6 +98,7 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
         echo "Thank you for supporting my work!   -ZcraftElite"
         line
         # Run the script with sudo permissions
+        # Downloads Quatro-Tetris into your /bin/ directory
         echo "$password" | sudo -S curl -LJ -o /bin/quatro-tetris \
         https://raw.githubusercontent.com/zcraftelite9495/codingstuffs/main/Python/Personal%20Project%202024/Quatro-Tetris/quatro-tetris
         
