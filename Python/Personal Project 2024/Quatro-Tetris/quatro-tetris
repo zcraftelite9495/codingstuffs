@@ -99,19 +99,20 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
         echo "Thank you for supporting my work!   -ZcraftElite"
         line
         # Run the script with sudo permissions
-        # Downloads Quatro-Tetris into your /bin/ directory
-        echo "$password" | sudo -S curl -LJ -o /bin/quatro-tetris \
-        https://raw.githubusercontent.com/zcraftelite9495/codingstuffs/main/Python/Personal%20Project%202024/Quatro-Tetris/quatro-tetris
-        
         # Download the codingstuffs repository
         git clone https://github.com/zcraftelite9495/codingstuffs.git
 
         # Copy the Quatro-Tetris folder to the desired destination
         cp -R codingstuffs/Python/Personal\ Project\ 2024/Quatro-Tetris/* ~/Games/Quatro\ Tetris
 
+        # Downloads Quatro-Tetris into your /bin/ directory
+        echo "Setting up commaned..."
+        echo "$password" | sudo -S cp quatro-tetris /bin/
+        echo "$password" | sudo -S chmod +x /bin/quatro-tetris
+
         # Clean up temporary files
         rm -rf codingstuffs
-        sleep 1 # Adds some artificial delay for smoother transition
+        sleep 2 # Adds some artificial delay for smoother transition
         clear
         splash
         line
