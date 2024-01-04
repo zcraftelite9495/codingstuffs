@@ -100,17 +100,20 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
         line
         # Run the script with sudo permissions
         # Download the codingstuffs repository
-        git clone https://github.com/zcraftelite9495/codingstuffs.git
+        echo "Cloning the 'codingstuffs' directory locally..."
+        git clone https://github.com/zcraftelite9495/codingstuffs.git >nul
 
         # Copy the Quatro-Tetris folder to the desired destination
+        echo "Copying Files to Quatro-Tetris folder..."
         cp -R codingstuffs/Python/Personal\ Project\ 2024/Quatro-Tetris/* ~/Games/Quatro\ Tetris
 
         # Downloads Quatro-Tetris into your /bin/ directory
-        echo "Setting up commaned..."
+        echo "Setting up command..."
         echo "$password" | sudo -S cp quatro-tetris /bin/
         echo "$password" | sudo -S chmod +x /bin/quatro-tetris
 
         # Clean up temporary files
+        echo "Removing Unnecessary Files..."
         rm -rf codingstuffs
         sleep 2 # Adds some artificial delay for smoother transition
         clear
