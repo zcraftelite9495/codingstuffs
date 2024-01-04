@@ -1,4 +1,4 @@
-class gridOriginal # Creates a class called 'Grid_Original'
+class gridOriginal: # Creates a class called 'Grid_Original'
     def __init__(self): # Creates a list of actions to be executed when the class (gridOriginal) is imported
         self.num_rows = 20 # Defines the number of rows
         self.num_cols = 10 # Defines the number of columns
