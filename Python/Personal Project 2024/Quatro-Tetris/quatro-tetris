@@ -246,24 +246,21 @@ pygame_ce_version=$(pip show pygame-ce | grep -oE 'Version:[[:space:]]+([0-9.]+)
 # Clears the screen because the process was finished
 clear
 
-# If the client info command modifier was used then it quits and displays the client info
-if [ "$client_info_only" = "y" ]; then
-    splash
-    line
-    display_client_info
-    exit 0
-fi
-
-# Prompts the user for what version of Quatro Tetris they want to run
+# Tells the user what part of this file is running
 splash
 line
-version="1.9.3"
-echo "Automatically selected newest version ($version)"
-echo "Press enter to confirm or type a custom version name and hit enter"
-read -p ">" proposed_version
-if [ "$proposed_version" != "" ]; then
-    version="$proposed_version"
-fi
+echo "Checking installed game files..."
+sleep 0.5 # Adds fake delay so text displays longer
+
+detected_game_files=$(ls *.py | awk '/^quatro-tetris-/ {print $NF}' | sed -E 's/^quatro-tetris-//; s/.py$//; s/^/ "/; s/$/"/' | tr -d '\n' | sed - E 's/^ //')
+
+for file in "${detected_game_files[@]}"; do
+    echo "'$file' - Found"
+done
+echo
+echo "${#detected_game_files[@]}"
+
+# Clears the screen because the process was finished
 clear
 
 # Tells the user what part of this file is running
@@ -287,6 +284,28 @@ for module in "${modules[@]}"; do
 done
 
 # Clears the screen because the process was finished
+clear
+
+# If the client info command modifier was used then it quits and displays the client info
+if [ "$client_info_only" = "y" ]; then
+    splash
+    line
+    display_client_info
+    exit 0
+fi
+
+# Prompts the user for what version of Quatro Tetris they want to run
+splash
+line
+version="main"
+echo "Automatically selected ($version)"
+line
+echo "Currently installed versions:"
+echo "Press enter to confirm or type a custom version name and hit enter"
+read -p ">" proposed_version
+if [ "$proposed_version" != "" ]; then
+    version="$proposed_version"
+fi
 clear
 
 # Tells the user what part of the program is running
