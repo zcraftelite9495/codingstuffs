@@ -252,7 +252,7 @@ line
 echo "Checking installed game files..."
 sleep 0.5 # Adds fake delay so text displays longer
 
-detected_game_files=($(ls *.py | awk '/^quatro-tetris-/ {print $NF}' | sed -E 's/^quatro-tetris-//; s/.py$//' | tr -d '\n' | sed - E 's/^ //'))
+detected_game_files=($(ls *.py | awk '/^quatro-tetris-/ {print $NF}' | sed -E 's/^quatro-tetris-//; s/.py$//' | tr -d '\n' | sed -E 's/^ //'))
 
 for file in "${detected_game_files[@]}"; do
     game_file_version="$(sed -n 1p "quatro-tetris-$file.py")"
