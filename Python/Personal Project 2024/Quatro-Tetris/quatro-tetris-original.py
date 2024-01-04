@@ -11,7 +11,7 @@ pygame.display.set_caption("Quatro-Tetris: Original Tetris") # Sets the game's w
 clock = pygame.time.Clock() 
 
 # Initializng Colors
-dark_blue = (44, 44, 127)
+dark_blue = (44, 44, 127) # Dark Blue
 
 while True: # Initiates the main game loop
     # Checking for Events
