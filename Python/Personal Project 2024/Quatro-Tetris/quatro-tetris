@@ -82,6 +82,7 @@ fi
 if [[ "${@:1:9}" =~ "--update" ]]; then
     debug="y"
     # Prompt the user for their password using a graphical popup
+    clear
     splash
     line
     echo "Waiting for password entry..."
