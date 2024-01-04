@@ -260,6 +260,7 @@ for file in "${detected_game_files[@]}"; do
 done
 echo
 echo "${#detected_game_files[@]}"
+read -p "UwU" uwu
 
 # Clears the screen because the process was finished
 clear
