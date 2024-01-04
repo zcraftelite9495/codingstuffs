@@ -256,7 +256,7 @@ detected_game_files=($(ls *.py | awk '/^quatro-tetris-/ {print $NF}' | sed -E 's
 
 for file in "${detected_game_files[@]}"; do
     game_file_version="$(sed -n 1p "quatro-tetris-$file.py")"
-    echo "Found - :$file" - $game_file_version"
+    echo "Found - $file - $game_file_version"
 done
 echo
 echo "${#detected_game_files[@]}"
