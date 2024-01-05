@@ -1,4 +1,4 @@
-# Quatro Tetris (gametest) v0.0.1
+# v0.0.1a-69
 
 # Import the modules used in the code
 import pygame
