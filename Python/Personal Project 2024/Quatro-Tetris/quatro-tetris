@@ -259,8 +259,8 @@ for file in "${detected_game_files[@]}"; do
     echo "Found - $file - $game_file_version"
 done
 echo
-echo "${#detected_game_files[@] Files were Found}"
-read -p "UwU" uwu
+echo "${#detected_game_files[@]} Files were Found"
+sleep 1
 
 # Clears the screen because the process was finished
 clear
