@@ -9,6 +9,7 @@ import sys # Imports the Python Internal System Extension Modules
 
 from classes import gridOriginal # Imports the 'gridOriginal' Class from the classes.py file we made earlier
 from classes import Colors # Imports the 'Colors' Class from the classes.py file we made earlier
+from blockClasses import * # Imports all the blocks from the blockClasses.py file we emade earlier
 
 pygame.init() # Initializes the 'pygame' module
 
@@ -23,13 +24,9 @@ gameGrid = gridOriginal()
 # Initializng Backround Color
 dark_blue = (44, 44, 127) # Dark Blue
 
-# Testing the color mechanism from the gridOriginal class
-gameGrid.grid[0][0] = 1
-gameGrid.grid[3][6] = 4
-gameGrid.grid[17][8] = 7
+# Testing the display of a tetrimino
+block = L_Block()
 
-# Prints the grid status to the terminal window
-gameGrid.print_grid()
 
 while True: # Initiates the main game loop
     # Checking for Events
@@ -40,8 +37,9 @@ while True: # Initiates the main game loop
             sys.exit() # Exits the python interpreter
     
     # Drawing objects
-    screen.fill(dark_blue)
-    gameGrid.draw(screen)
+    screen.fill(dark_blue) # Fills the backround of the screen with Dark Blue
+    gameGrid.draw(screen) # Draws the game grid on the screen
+    block.draw(screen) # Testing the display of a tetrimino
     pygame.display.update() # Updates all objects on the screen 
     clock.tick(60) # Sets the framerate of the game, to keep it running consistently
 
