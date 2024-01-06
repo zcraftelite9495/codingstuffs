@@ -18,7 +18,7 @@ gameGrid = gridOriginal()
 # Initializng Colors
 dark_blue = (44, 44, 127) # Dark Blue
 
-# Other Command
+# Prints the grid status to the terminal window
 gameGrid.print_grid()
 
 while True: # Initiates the main game loop
@@ -31,6 +31,7 @@ while True: # Initiates the main game loop
     
     # Drawing objects
     screen.fill(dark_blue)
+    gameGrid.draw(screen)
     pygame.display.update() # Updates all objects on the screen 
     clock.tick(60) # Sets the framerate of the game, to keep it running consistently
 
