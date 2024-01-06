@@ -47,7 +47,7 @@ class gridOriginal: # Creates a class called 'gridOriginal'
                 pygame.draw.rect(screen, self.colors[cell_value], cell_rect) # Draws the rectange(s) on the screen according to the following values
 
 class Block: # Creates a class called 'Block' which will be the parent class for all the tetris blocks
-    def __init__(self): # Creates a list of actions to be executed when the class (Block) is imported
+    def __init__(self, id): # Creates a list of actions to be executed when the class (Block) is imported
         self.id = id # Initializes the 'id' variable
         self.cells = {} # Initializes the 'cells' variable
         self.cell_size = 30 # Sets the Cell Size

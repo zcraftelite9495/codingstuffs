@@ -5,7 +5,6 @@ from classes import Position # Ensure the Position class is available for use in
 class L_Block(Block): # Creates a class for the L Tertromino
     def __init__(self): 
         super().__init__(id = 1) # Initializes the parent class' data
-        id = 1 # Sets the ID of the file
         self.cells = { # Defines rotation states' cell positions
             0: [Position(0, 2), Position(1, 0), Position(1, 1), Position(1, 2)],
             # [0][0][1]
