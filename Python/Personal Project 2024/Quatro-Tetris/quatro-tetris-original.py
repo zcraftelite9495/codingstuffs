@@ -1,4 +1,4 @@
-# v0.0.1a-26
+# v0.0.1a-28    
 print('Anything shown in this terminal is either used for debugging purposes, or non display purposes, please diregard anything display in this terminal screen.') # Shows warning to end user about outputs to the Terminal Screen
 import pygame # Imports the Pygame Community Edition Modules
 import sys # Imports the Python Internal System Extension Modules
@@ -15,8 +15,13 @@ pygame.display.set_caption("Quatro-Tetris: Original Tetris") # Sets the game's w
 clock = pygame.time.Clock()
 gameGrid = gridOriginal()
 
-# Initializng Colors
+# Initializng Backround Color
 dark_blue = (44, 44, 127) # Dark Blue
+
+# Testing the color mechanism from the gridOriginal class
+gameGrid.grid[0][0] = 1
+gameGrid.grid[3][6] = 4
+gameGrid.grid[17][8] = 7
 
 # Prints the grid status to the terminal window
 gameGrid.print_grid()
