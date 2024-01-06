@@ -1,3 +1,5 @@
+# Notes on 'pygame'
+
 ## How 'pygame' renders its display
 
 ### Display Surface
@@ -12,3 +14,8 @@
 
 ### Rect
 * Rectanges that we use for positioning, collision detection and for drawing objects
+
+## Disply of block entities
+
+### Representing blocks
+To represent the different rotation states of objects, we can imagine them in a grid big enough to fit it in all rotation states. The box is divided into a grid and we label the top left cell as the origin (0, 0). For each of the rotation states, we store the cells that occupy the grid (not all the cells in the grid).
