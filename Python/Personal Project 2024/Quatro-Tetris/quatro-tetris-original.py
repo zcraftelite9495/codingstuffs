@@ -8,6 +8,7 @@ import pygame # Imports the Pygame Community Edition Modules
 import sys # Imports the Python Internal System Extension Modules
 
 from classes import gridOriginal # Imports the 'gridOriginal' Class from the classes.py file we made earlier
+from classes import Colors # Imports the 'Colors' Class from the classes.py file we made earlier
 
 pygame.init() # Initializes the 'pygame' module
 
