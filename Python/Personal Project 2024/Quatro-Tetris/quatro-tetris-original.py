@@ -1,4 +1,8 @@
 # v0.0.1a-28
+splashFile = open('splash-original.txt', 'r')
+splash = splashFile.read()
+print(splash)
+splashFile.close()
 print('Anything shown in this terminal is either used for debugging purposes, or non display purposes, please diregard anything displayed in this terminal screen.') # Shows warning to end user about outputs to the Terminal Screen
 import pygame # Imports the Pygame Community Edition Modules
 import sys # Imports the Python Internal System Extension Modules
