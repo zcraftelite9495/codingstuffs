@@ -342,8 +342,6 @@ if [ -f "$python_file" ]; then
     sleep 1
     clear
     # Gets the output given when the game exits
-    splash
-    line
     $python_command "$python_file" >(tee /dev/tty) 2> "$tempfile"
     # Checks the exit code given by the game
     exit_code=$?
