@@ -303,6 +303,10 @@ version="main"
 echo "Automatically selected ($version)"
 line
 echo "Currently installed versions:"
+for file in "${detected_game_files[@]}"; do
+    game_file_version="$(sed -n 1p "quatro-tetris-$file.py" | sed -E 's/^# //')"
+    echo "$file - $game_file_version"
+done
 echo "Press enter to confirm or type a custom version name and hit enter"
 read -p ">" proposed_version
 if [ "$proposed_version" != "" ]; then
