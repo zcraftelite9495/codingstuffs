@@ -1,4 +1,4 @@
-# v0.0.1a-24
+# v0.0.1a-26
 print('Anything shown in this terminal is either used for debugging purposes, or non display purposes, please diregard anything display in this terminal screen.') # Shows warning to end user about outputs to the Terminal Screen
 import pygame # Imports the Pygame Community Edition Modules
 import sys # Imports the Python Internal System Extension Modules

@@ -38,8 +38,8 @@ class gridOriginal: # Creates a class called 'Grid_Original'
 
     def draw(self, screen): # Defines the command that draws the cells on the screen
         # To get the values of all the numbers in the array, we use a nested loop
-        for row in range(self.num_rows)
-            for column in range(self.num_cols)
+        for row in range(self.num_rows):
+            for column in range(self.num_cols):
                 cell_value = self.grid[row][column]
                 cell_rect = pygame.Rect(column*self.cell_size, row*self.cell_size, self.cell_size, self.cell_size) # Creates the grid's cells, by multiplying the columns and rows by the cell_size and setting the cell size to cell_size.
                 pygame.draw.rect(screen, self.colors[cell_value], cell_rect) # Draws the rectange(s) on the screen according to the following values
