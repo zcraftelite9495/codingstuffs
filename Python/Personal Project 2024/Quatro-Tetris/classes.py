@@ -1,5 +1,6 @@
 import pygame # Ensures that the pygame tools are available for use in this classes file
 
+
 class Colors: # Creates a class called 'Colors' which will store all the attributes for the colors needed in Quatro Tetris
     #Dark Grey
     dark_grey = (26, 31, 40)
@@ -58,7 +59,7 @@ class Block: # Creates a class called 'Block' which will be the parent class for
     def draw(self, screen): # Creates a command that draws the current block
         tiles = self.cells[self.rotation_state] # Sets the tile variable to the rotation state and cells of the block
         for tile in tiles: 
-            tile_rect = pygame.rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size -1, self.cell_size -1) # Sets the paramaters for the rect
+            tile_rect = pygame.Rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size -1, self.cell_size -1) # Sets the paramaters for the rect
             pygame.draw.rect(screen, self.colors[self.id], tile_rect) # Draws the rect
 
 class Position: # Creates a class called 'Position' which will be used to help represent a position in a two-dimensional grid using a single object
