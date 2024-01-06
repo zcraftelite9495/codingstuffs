@@ -60,7 +60,7 @@ class Block: # Creates a class called 'Block' which will be the parent class for
         tiles = self.cells[self.rotation_state] # Sets the tile variable to the rotation state and cells of the block
         for tile in tiles: 
             tile_rect = pygame.Rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size -1, self.cell_size -1) # Sets the paramaters for the rect
-            pygame.draw.rect(screen, self.colors[self.id], tile_rect) # Draws the rect
+            pygame.draw.rect(screen, self.Colors[self.id], tile_rect) # Draws the rect
 
 class Position: # Creates a class called 'Position' which will be used to help represent a position in a two-dimensional grid using a single object
     def __init__(self, row, column): # Creates a list of actions to be executed when the class (Position) is imported
