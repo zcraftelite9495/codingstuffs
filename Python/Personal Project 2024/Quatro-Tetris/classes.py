@@ -23,6 +23,41 @@ class Colors: # Creates a class called 'Colors' which will store all the attribu
 
         return [cls.dark_grey, cls.green, cls.red, cls.orange, cls.yellow, cls.purple, cls.cyan, cls.blue]
 
+class Position: # Creates a class called 'Position' which will be used to help represent a position in a two-dimensional grid using a single object
+    def __init__(self, row, column): # Creates a list of actions to be executed when the class (Position) is imported
+        self.row = row
+        self.column = column
+
+class Block: # Creates a class called 'Block' which will be the parent class for all the tetris blocks
+    def __init__(self, id): # Creates a list of actions to be executed when the class (Block) is imported
+        self.id = id # Initializes the 'id' variable
+        self.cells = {} # Initializes the 'cells' variable
+        self.cell_size = 30 # Sets the Cell Size
+        self.row_offset = 0 # Sets the row offset of the block
+        self.column_offset = 0 # Sets the column offset of the block
+        self.rotation_state = 0 # Initializes the Rotation State
+        self.Colors = Colors.get_cell_colors() 
+
+    def move(self, rows, columns):
+        self.row_offset += rows
+        self.column_offset += columns
+
+    def get_cell_positions(self):
+        tiles = self.cells[self.rotation_state]
+        moved_tiles = []
+        for position in tiles:
+            position = Position(position.row + self.row_offset, position.column + self.column_offset)
+            moved_tiles.append(position)
+        return moved_tiles
+
+
+    def draw(self, screen): # Creates a command that draws the current block
+        tiles = self.get_cell_positions() # Sets the tile variable to the rotation state and cells of the block
+        for tile in tiles: 
+            tile_rect = pygame.Rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size - 1, self.cell_size - 1) # Sets the paramaters for the rect
+            pygame.draw.rect(screen, self.Colors[self.id], tile_rect) # Draws the rect
+
+
 class gridOriginal: # Creates a class called 'gridOriginal'
     def __init__(self): # Creates a list of actions to be executed when the class (gridOriginal) is imported
         self.num_rows = 20 # Defines the number of rows 
@@ -50,38 +85,3 @@ class gridOriginal: # Creates a class called 'gridOriginal'
                 cell_value = self.grid[row][column]
                 cell_rect = pygame.Rect(column*self.cell_size +1, row*self.cell_size +1, self.cell_size -1, self.cell_size -1) # Creates the grid's cells, by multiplying the columns and rows by the cell_size and setting the cell size to cell_size.
                 pygame.draw.rect(screen, self.colors[cell_value], cell_rect) # Draws the rectange(s) on the screen according to the following values
-
-class Position: # Creates a class called 'Position' which will be used to help represent a position in a two-dimensional grid using a single object
-    def __init__(self, row, column): # Creates a list of actions to be executed when the class (Position) is imported
-        self.row = row
-        self.column = column
-
-class Block: # Creates a class called 'Block' which will be the parent class for all the tetris blocks
-    def __init__(self, id): # Creates a list of actions to be executed when the class (Block) is imported
-        self.id = id # Initializes the 'id' variable
-        self.cells = {} # Initializes the 'cells' variable
-        self.cell_size = 30 # Sets the Cell Size
-        self.row_offset = 0 # Sets the row offset of the block
-        self.column_offset = 0 # Sets the column offset of the block
-        self.rotation_state = 0 # Initializes the Rotation State
-        self.Colors = Colors.get_cell_colors() 
-
-    def move(self, rows, columns):
-        self.row_offset += rows
-        self.column_offset += columns
-
-    def get_cell_positions(self):
-        tiles = self.cells[self.rotation_state]
-        moved_tiles = []
-        for position in tiles:
-            print("Ran once")
-            position = Position(position.row + self.row_offset, position.column + self.column_offset)
-            moved_tiles.append(position)
-        return moved_tiles
-
-
-    def draw(self, screen): # Creates a command that draws the current block
-        tiles = self.get_cell_positions() # Sets the tile variable to the rotation state and cells of the block
-        for tile in tiles: 
-            tile_rect = pygame.Rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size - 1, self.cell_size - 1) # Sets the paramaters for the rect
-            pygame.draw.rect(screen, self.Colors[self.id], tile_rect) # Draws the rect
