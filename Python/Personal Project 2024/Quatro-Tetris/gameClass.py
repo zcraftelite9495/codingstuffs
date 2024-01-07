@@ -37,11 +37,11 @@ class Game: # Creates a class called 'Game' which will store all the attributes 
     def block_inside(self): # Defines the command to check for boundries
         tiles = self.current_block.get_cell_positions()
         for tile in tiles:
+            print(tile.row)
+            print(tile.column)
             if self.grid.is_inside(tile.row, tile.column) == False:
                 return False 
             return True
-
-
 
     def draw(self, screen): # Defines the command to draw updates on the screen
         self.grid.draw(screen)
