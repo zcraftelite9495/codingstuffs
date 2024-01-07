@@ -38,6 +38,11 @@ class gridOriginal: # Creates a class called 'gridOriginal'
                 print(self.grid[row][column], end = " ") # Prints the values for the array into the terminal window
             print ()
 
+    def is_inside(self, row, column): # Defines the command that checks if the block has gone past the boundries of the grid
+        if row >= 0 and row < self.num_rows and column >= 0 and column < self.num_cols:
+            return True
+        return False
+
     def draw(self, screen): # Defines the command that draws the cells on the screen
         # To get the values of all the numbers in the array, we use a nested loop
         for row in range(self.num_rows):

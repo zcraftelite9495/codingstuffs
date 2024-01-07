@@ -21,12 +21,27 @@ class Game: # Creates a class called 'Game' which will store all the attributes 
 
     def move_left(self): # Defines the command to move the block left
         self.current_block.move(0, -1)
+        if self.block_inside() == False:
+            self.current_block.move(0, 1)
 
     def move_right(self): # Defines the command to move the block right
         self.current_block.move(0, 1)
+        if self.block_inside() == False:
+            self.current_block.move(0, -1)
 
     def move_down(self): # Defines the command to move the block down (faster)
         self.current_block.move(1, 0)
+        if self.block_inside() == False:
+            self.current_block.move(-1, 0)
+
+    def block_inside(self): # Defines the command to check for boundries
+        tiles = self.current_block.get_cell_positions()
+        for tile in tiles:
+            if self.grid.is_inside(tile.row, tile.column) == False:
+                return False 
+            return True
+
+
 
     def draw(self, screen): # Defines the command to draw updates on the screen
         self.grid.draw(screen)
