@@ -1,5 +1,6 @@
 import pygame # Ensures that the pygame tools are available for use in this classes file
 from classes import Block # Ensures the Block class is available for use in this file
+from classes import Position # Ensures the Position class is available for use in this file
 
 class L_Block(Block): # Creates a class for the L Tetromino
     def __init__(self): 
