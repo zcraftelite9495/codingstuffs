@@ -432,6 +432,23 @@ if [ -f "$python_file" ]; then
                 cat "$tempfile"
             fi
             exit 1
+        elif [[ "$(cat "$tempfile")" =~ "ModuleNotFoundError" ]]; then
+            splash
+            line
+            splash_error_2
+            line
+            echo "Error 0008"
+            line
+            echo "A module in the game was either not found or failed to initialize. Please contact the developer."
+            if [ "$debug" = "y" ]; then
+                echo ""
+                display_client_info
+                echo ""
+                echo "Python Output"
+                line
+                cat "$tempfile"
+            fi
+            exit 1
         else
             clear
             splash
