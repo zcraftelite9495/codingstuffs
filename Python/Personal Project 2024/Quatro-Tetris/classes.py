@@ -74,9 +74,9 @@ class Block: # Creates a class called 'Block' which will be the parent class for
         tiles = self.cells[self.rotation_state]
         moved_tiles = []
         for position in tiles:
+            print("Ran once")
             position = Position(position.row + self.row_offset, position.column + self.column_offset)
             moved_tiles.append(position)
-        print(moved_tiles)
         return moved_tiles
 
 
