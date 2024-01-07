@@ -1,7 +1,7 @@
 import pygame # Ensures that the pygame tools are available for use in this classes file
 import random # Ensures that the random tools are available for use in this classes file
 
-from blocksClasses import * # Makes sure the block classes are available within this file
+from blockClasses import * # Makes sure the block classes are available within this file
 
 class Game: # Creates a class called 'Game' which will store all the attributes and modules to control the safe runtime of the game
     def __init__(self):
