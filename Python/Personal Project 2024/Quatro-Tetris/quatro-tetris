@@ -48,6 +48,13 @@ function splash_error_4
 }
 
 # Splash Screen Function
+function splash_yay
+{
+    cat splash-yay.txt
+    echo
+}
+
+# Splash Screen Function
 function splash_thanks
 {
     cat splash-thanks.txt
@@ -153,6 +160,8 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
         sleep 2 # Adds some artificial delay for smoother transition
         clear
         splash
+        line
+        splash_yay
         line
         echo "Update has been installed :3"
         echo "Your now using Quatro Tetris Version $(cat version.txt)!"
