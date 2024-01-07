@@ -1,4 +1,4 @@
-# v0.0.1a-65
+# v0.0.1a-67
 splashFile = open('splash-original.txt', 'r')
 splash = splashFile.read()
 print(splash)
@@ -8,7 +8,6 @@ import pygame # Imports the Pygame Community Edition Modules
 import sys # Imports the Python Internal System Extension Modules
 import random # Improts the Randomized Extension Modules
 
-from classes import gridOriginal # Imports the 'gridOriginal' Class from the classes.py file we made earlier
 from classes import Colors # Imports the 'Colors' Class from the classes.py file we made earlier
 from blockClasses import * # Imports all the blocks from the blockClasses.py file we emade earlier
 from original_gamedata import Game # Imports the 'Game' Class from the classes.py file we made earlier

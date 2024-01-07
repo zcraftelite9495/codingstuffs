@@ -3,6 +3,7 @@ import random # Ensures that the random tools are available for use in this clas
 
 from blockClasses import * # Makes sure the block classes are available within this file
 from classes import Block # Makes sure the Block class is available within this file
+from classes import gridOriginal # Makes sure the Grid class is available within this file
 
 class Game: # Creates a class called 'Game' which will store all the attributes and modules to control the safe runtime of the game
     def __init__(self):
