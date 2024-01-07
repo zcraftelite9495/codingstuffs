@@ -34,6 +34,9 @@ class Game: # Creates a class called 'Game' which will store all the attributes 
         if self.block_inside() == False:
             self.current_block.move(-1, 0)
 
+    def roatate(self): # Defines the command to rotate the block clockwise
+        self.current_block.rotate()
+
     def block_inside(self): # Defines the command to check for boundries
         tiles = self.current_block.get_cell_positions()
         for tile in tiles:
