@@ -25,7 +25,7 @@ class Colors: # Creates a class called 'Colors' which will store all the attribu
 
 class gridOriginal: # Creates a class called 'gridOriginal'
     def __init__(self): # Creates a list of actions to be executed when the class (gridOriginal) is imported
-        self.num_rows = 20 # Defines the number of rows
+        self.num_rows = 20 # Defines the number of rows 
         self.num_cols = 10 # Defines the number of columns
         self.cell_size = 30 # Defines the size of the cells in pixels
         self.grid = [[0 for j in range(self.num_cols)] for i in range(self.num_rows)] 
@@ -50,6 +50,11 @@ class gridOriginal: # Creates a class called 'gridOriginal'
                 cell_value = self.grid[row][column]
                 cell_rect = pygame.Rect(column*self.cell_size +1, row*self.cell_size +1, self.cell_size -1, self.cell_size -1) # Creates the grid's cells, by multiplying the columns and rows by the cell_size and setting the cell size to cell_size.
                 pygame.draw.rect(screen, self.colors[cell_value], cell_rect) # Draws the rectange(s) on the screen according to the following values
+
+class Position: # Creates a class called 'Position' which will be used to help represent a position in a two-dimensional grid using a single object
+    def __init__(self, row, column): # Creates a list of actions to be executed when the class (Position) is imported
+        self.row = row
+        self.column = column
 
 class Block: # Creates a class called 'Block' which will be the parent class for all the tetris blocks
     def __init__(self, id): # Creates a list of actions to be executed when the class (Block) is imported
@@ -79,8 +84,3 @@ class Block: # Creates a class called 'Block' which will be the parent class for
         for tile in tiles: 
             tile_rect = pygame.Rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size -1, self.cell_size -1) # Sets the paramaters for the rect
             pygame.draw.rect(screen, self.Colors[self.id], tile_rect) # Draws the rect
-
-class Position: # Creates a class called 'Position' which will be used to help represent a position in a two-dimensional grid using a single object
-    def __init__(self, row, column): # Creates a list of actions to be executed when the class (Position) is imported
-        self.row = row
-        self.column = column
