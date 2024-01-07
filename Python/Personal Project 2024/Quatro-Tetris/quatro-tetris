@@ -120,7 +120,17 @@ if [[ "${@:1:9}" =~ "--update" ]]; then
         splash
         line
         echo "Update has been installed :3"
-        echo "Your now using Quatro Tetris Version $(cat version.txt). Have fun playing."
+        echo "Your now using Quatro Tetris Version $(cat version.txt)!"
+        echo "Along with the newest version of the executable, you also have updated your game versions!"
+        echo "Here are the following new or modified versions of the game you have installed on your system:"
+        detected_game_files=($(ls *.py | awk '/^quatro-tetris-/ {print $NF}' | sed -E 's/^quatro-tetris-//; s/.py$//; s/$/ /' | tr -d '\n' | sed -E 's/^ //'))
+
+        for file in "${detected_game_files[@]}"; do
+            game_file_version="$(sed -n 1p "quatro-tetris-$file.py" | sed -E 's/^# //')"
+            echo "$file - $game_file_version"
+        done
+        echo
+        echo "I hope you enjoy playing!"
         exit 0
     else
         clear
