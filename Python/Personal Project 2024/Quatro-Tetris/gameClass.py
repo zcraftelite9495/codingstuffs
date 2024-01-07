@@ -41,7 +41,7 @@ class Game: # Creates a class called 'Game' which will store all the attributes 
             print(tile.column)
             if self.grid.is_inside(tile.row, tile.column) == False:
                 return False 
-            return True
+        return True
 
     def draw(self, screen): # Defines the command to draw updates on the screen
         self.grid.draw(screen)
