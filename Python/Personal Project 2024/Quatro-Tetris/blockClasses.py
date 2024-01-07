@@ -23,6 +23,7 @@ class L_Block(Block): # Creates a class for the L Tetromino
             # [-][1][-]
             # [-][1][-]
         }
+        self.move(0, 3)
 
 class J_Block(Block): # Creates a class for the J Tetromino
     def __init__(self):
@@ -45,6 +46,7 @@ class J_Block(Block): # Creates a class for the J Tetromino
             # [-][2][-]
             # [2][2][-]
         }
+        self.move(0, 3)
 
 class I_Block(Block): # Creates a class for the I Tetromino
     def __init__(self):
@@ -71,6 +73,7 @@ class I_Block(Block): # Creates a class for the I Tetromino
             # [-][3][-][-]
             # [-][3][-][-]
         }
+        self.move(0, 3)
 
 class O_Block(Block): # Creates a class for the O Tetromino
     def __init__(self):
@@ -89,6 +92,7 @@ class O_Block(Block): # Creates a class for the O Tetromino
             # [4][4]
             # [4][4]
         }
+        self.move(0, 3)
 
 class S_Block(Block): # Creates a class for the S Tetromino
     def __init__(self):
@@ -111,6 +115,7 @@ class S_Block(Block): # Creates a class for the S Tetromino
             # [5][5][-]
             # [-][5][-]
         }
+        self.move(0, 3)
 
 class T_Block(Block): # Creates a class for the T Tetromino
     def __init__(self):
@@ -133,6 +138,7 @@ class T_Block(Block): # Creates a class for the T Tetromino
             # [6][6][-]
             # [-][6][-]
         }
+        self.move(0, 3)
 
 class Z_Block(Block):
     def __init__(self):
@@ -155,3 +161,4 @@ class Z_Block(Block):
             # [7][7][-]
             # [7][-][-]
         }
+        self.move(0, 3)
