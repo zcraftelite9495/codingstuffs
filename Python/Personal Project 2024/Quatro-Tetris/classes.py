@@ -52,12 +52,26 @@ class Block: # Creates a class called 'Block' which will be the parent class for
         self.id = id # Initializes the 'id' variable
         self.cells = {} # Initializes the 'cells' variable
         self.cell_size = 30 # Sets the Cell Size
+        self.row_offset = 0 # Sets the row offset of the block
+        self.column_offset = 0 # Sets the column offset of the block
         self.rotation_state = 0 # Initializes the Rotation State
-        self.Colors = Colors.get_cell_colors()
+        self.Colors = Colors.get_cell_colors() 
+
+    def move(self, rows, columns):
+        self.row_offset += rows
+        self.column_offset += columns
+
+    def get_cell_positions(self):
+        tiles = self.cells[self.rotation_state]
+        moved_tiles = []
+        for position in tiles:
+            position = Position(position.row + self.row_offset, position.column + self.column_offset)
+            moved_tiles.append(position)
+        return moved_tiles
 
 
     def draw(self, screen): # Creates a command that draws the current block
-        tiles = self.cells[self.rotation_state] # Sets the tile variable to the rotation state and cells of the block
+        tiles = self.get_cell_positions() # Sets the tile variable to the rotation state and cells of the block
         for tile in tiles: 
             tile_rect = pygame.Rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size -1, self.cell_size -1) # Sets the paramaters for the rect
             pygame.draw.rect(screen, self.Colors[self.id], tile_rect) # Draws the rect

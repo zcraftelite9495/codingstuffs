@@ -1,4 +1,4 @@
-# v0.0.1a-38
+# v0.0.1a-43
 splashFile = open('splash-original.txt', 'r')
 splash = splashFile.read()
 print(splash)
@@ -26,6 +26,7 @@ dark_blue = (44, 44, 127) # Dark Blue
 
 # Testing the display of a tetrimino
 block = T_Block()
+block.move(4, 3)
 
 
 while True: # Initiates the main game loop
