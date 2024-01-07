@@ -92,7 +92,7 @@ class O_Block(Block): # Creates a class for the O Tetromino
             # [4][4]
             # [4][4]
         }
-        self.move(0, 3)
+        self.move(0, 4)
 
 class S_Block(Block): # Creates a class for the S Tetromino
     def __init__(self):
