@@ -74,6 +74,8 @@ class gridOriginal: # Creates a class called 'gridOriginal'
             print ()
 
     def is_inside(self, row, column): # Defines the command that checks if the block has gone past the boundries of the grid
+        print(row)
+        print(column)
         if row >= 0 and row < self.num_rows and column >= 0 and column < self.num_cols:
             return True
         return False
