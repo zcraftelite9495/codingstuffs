@@ -34,6 +34,20 @@ function splash_error_2
 }
 
 # Splash Screen Function
+function splash_error_3
+{
+    cat splash-error-3.txt
+    echo
+}
+
+# Splash Screen Function
+function splash_error_4
+{
+    cat splash-error-4.txt
+    echo
+}
+
+# Splash Screen Function
 function splash_thanks
 {
     cat splash-thanks.txt
@@ -453,11 +467,11 @@ if [ -f "$python_file" ]; then
             clear
             splash
             line
-            splash_error_2
+            splash_error_3
             line
             echo "Error 0000"
             line
-            echo "A unexpected error in the game code has occured. Please try again. If the issue persists, please contact the developer."
+            echo "A unexpected error in the game code has occured or the application has been forced to quit. If the application stopped responding, and you were forced to quit it, it could be caused by issues with your device, and you should ignore this error. If you were not forced to quit the application, please try again. If the issue persists, please contact the developer."
             if [ "$debug" = "y" ]; then
                 echo ""
                 display_client_info
@@ -483,11 +497,16 @@ else
     clear
     splash
     line
-    splash_error
+    splash_error_4
     line
     echo "Error 0004"
     line
-    echo "The Version of the game you are trying to run ($version), does not exist or is not currently downloaded. Please ensure you downloaded the entire Quatro-Tetris folder from the repository, and that you typed the version number in correctly (v#.#.#)"
+    echo "The Version of the game you are trying to run ($version), does not exist or is not currently downloaded. Please ensure you have run 'quatro-tetris --update' and have the latest data from the repository, and that you typed the version number in correctly. You have the following versions currently installed:"
+    detected_game_files=($(ls *.py | awk '/^quatro-tetris-/ {print $NF}' | sed -E 's/^quatro-tetris-//; s/.py$//; s/$/ /' | tr -d '\n' | sed -E 's/^ //'))
+    for file in "${detected_game_files[@]}"; do
+        game_file_version="$(sed -n 1p "quatro-tetris-$file.py" | sed -E 's/^# //')"
+        echo "$file - $game_file_version"
+    done
     echo ""
     exit 1
 fi
