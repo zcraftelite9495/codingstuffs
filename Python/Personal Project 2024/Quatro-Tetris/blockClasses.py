@@ -73,7 +73,7 @@ class I_Block(Block): # Creates a class for the I Tetromino
             # [-][3][-][-]
             # [-][3][-][-]
         }
-        self.move(0, 3)
+        self.move(-1, 3)
 
 class O_Block(Block): # Creates a class for the O Tetromino
     def __init__(self):
