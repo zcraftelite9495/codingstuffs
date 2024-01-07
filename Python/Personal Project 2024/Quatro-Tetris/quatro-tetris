@@ -19,6 +19,27 @@ function splash
     echo
 }
 
+# Splash Screen Function
+function splash_error
+{
+    cat splash-error.txt
+    echo
+}
+
+# Splash Screen Function
+function splash_error_2
+{
+    cat splash-error-2.txt
+    echo
+}
+
+# Splash Screen Function
+function splash_thanks
+{
+    cat splash-thanks.txt
+    echo
+}
+
 # Line Function
 function line
 {
@@ -342,6 +363,8 @@ tempfile=$(mktemp)
 # Runs the game
 if [ -f "$python_file" ]; then
     if [ "$debug" = "y" ]; then
+        splash
+        line
         display_client_info
         sleep 5
         clear
@@ -359,6 +382,10 @@ if [ -f "$python_file" ]; then
         # If the exit was due to an error, it detects the type of python error that was encountered and throws an error message, which will include more information if the program was run in debug mode.
         clear
         if [[ "$(cat "$tempfile")" =~ "SyntaxError" ]]; then
+            splash
+            line
+            splash_error
+            line
             echo "Error 0005"
             line
             echo "A SyntaxError in the game code has occured. Please try again. If the issue presists, please contact the developer."
@@ -372,6 +399,10 @@ if [ -f "$python_file" ]; then
             fi
             exit 1
         elif [[ "$(cat "$tempfile")" =~ "TypeError" ]]; then
+            splash
+            line
+            splash_error
+            line
             echo "Error 0006"
             line
             echo "A TypeError in the game code has occured. Please try again. If the issue presists, please contact the developer."
@@ -385,6 +416,10 @@ if [ -f "$python_file" ]; then
             fi
             exit 1
         elif [[ "$(cat "$tempfile")" =~ "IndexError" ]]; then
+            splash
+            line
+            splash_error
+            line
             echo "Error 0007"
             line
             echo "A IndexError in the game code has occured. Please try again. If the issue presists, please contact the developer."
@@ -399,6 +434,10 @@ if [ -f "$python_file" ]; then
             exit 1
         else
             clear
+            splash
+            line
+            splash_error_2
+            line
             echo "Error 0000"
             line
             echo "A unexpected error in the game code has occured. Please try again. If the issue persists, please contact the developer."
@@ -415,13 +454,20 @@ if [ -f "$python_file" ]; then
     fi
     sleep 1
     clear
+    splash
+    line
     echo "Quatro Tetris $version"
     line
-    echo "Thanks for playing"
+    splash_thanks
+    line
     echo "Give feedback on Twitter or Instagram by mentioning @zcraftelite"
     echo ""
 else
     clear
+    splash
+    line
+    splash_error
+    line
     echo "Error 0004"
     line
     echo "The Version of the game you are trying to run ($version), does not exist or is not currently downloaded. Please ensure you downloaded the entire Quatro-Tetris folder from the repository, and that you typed the version number in correctly (v#.#.#)"
