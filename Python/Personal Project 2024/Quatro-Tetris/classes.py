@@ -82,5 +82,5 @@ class Block: # Creates a class called 'Block' which will be the parent class for
     def draw(self, screen): # Creates a command that draws the current block
         tiles = self.get_cell_positions() # Sets the tile variable to the rotation state and cells of the block
         for tile in tiles: 
-            tile_rect = pygame.Rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size -1, self.cell_size -1) # Sets the paramaters for the rect
+            tile_rect = pygame.Rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size - 1, self.cell_size - 1) # Sets the paramaters for the rect
             pygame.draw.rect(screen, self.Colors[self.id], tile_rect) # Draws the rect
