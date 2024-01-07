@@ -43,7 +43,7 @@ while True: # Initiates the main game loop
             if event.key == pygame.K_DOWN: # Detects if that key is the "↓" key
                 game.move_down()
 
-            if event.kry == pygame.K_UP: # Detects if that key is the "↑" key
+            if event.key == pygame.K_UP: # Detects if that key is the "↑" key
                 game.rotate()
 
     
