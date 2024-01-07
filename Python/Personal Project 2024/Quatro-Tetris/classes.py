@@ -11,7 +11,7 @@ class Game: # Creates a class called 'Game' which will store all the attributes 
         self.next_block = self.get_random_block() # Gets a random block to show next
 
     def get_random_block(self):
-        if len(self.blocks) == 0 # Refills the blocks list when it is empty
+        if len(self.blocks) == 0: # Refills the blocks list when it is empty
             self.blocks = [I_Block(), J_Block(), L_Block(), O_Block(), S_Block(), T_Block(), Z_Block()]
         block = random.choice(self.blocks) # Gets a random block
         self.blocks.remove(block) # Removes the chosen block
