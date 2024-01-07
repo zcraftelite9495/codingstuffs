@@ -52,7 +52,7 @@ class I_Block(Block): # Creates a class for the I Tetromino
     def __init__(self):
         super().__init__(id = 3) # Initializes the parent class' data
         self.cells = { # Defines rotation states' cell positions
-            0: [Position(1, 0), Position(1, 2), Position(1, 3), Position(1, 4)],
+            0: [Position(1, 0), Position(1, 1), Position(1, 2), Position(1, 3)],
             # [-][-][-][-]
             # [3][3][3][3]
             # [-][-][-][-]
