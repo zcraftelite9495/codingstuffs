@@ -26,3 +26,7 @@ To represent the different rotation states of objects, we can imagine them in a 
 Inheritance is like passing down traits from parents to children. In python, it allows us to create a new class that is a modified version of an existing class. The new class, called the child class, will 'inherit' all the attributes and methods of its original class, called the parent class. Then we can add more attributes and methods or overwrite existing ones in the child class customize its behavior.
 
 Its similar to having a template that we can reuse and modify without starting from scratch every time.
+
+## Game Class
+
+### 
