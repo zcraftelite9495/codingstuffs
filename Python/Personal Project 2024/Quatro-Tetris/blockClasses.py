@@ -67,7 +67,7 @@ class I_Block(Block): # Creates a class for the I Tetromino
             # [-][-][-][-]
             # [3][3][3][3]
             # [-][-][-][-]
-            3: [Position(0, 1), Position(1, 1), Position(2, 0), Position(2, 1)]
+            3: [Position(0, 1), Position(1, 1), Position(2, 1), Position(3, 1)]
             # [-][3][-][-]
             # [-][3][-][-]
             # [-][3][-][-]
