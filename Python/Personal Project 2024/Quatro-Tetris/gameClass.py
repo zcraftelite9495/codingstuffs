@@ -36,6 +36,8 @@ class Game: # Creates a class called 'Game' which will store all the attributes 
 
     def rotate(self): # Defines the command to rotate the block clockwise
         self.current_block.rotate()
+        if self.block_inside() == False:
+            self.current_block.undo_rotation()
 
     def block_inside(self): # Defines the command to check for boundries
         tiles = self.current_block.get_cell_positions()

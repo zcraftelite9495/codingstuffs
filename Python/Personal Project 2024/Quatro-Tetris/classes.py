@@ -78,6 +78,11 @@ class Block: # Creates a class called 'Block' which will be the parent class for
         if self.rotation_state == len(self.cells):
             self.rotation_state = 0
 
+    def undo_rotation(self):
+        self.rotation_state -= 1
+        if self.rotation_state == 0:
+            self.rotation_state == len(self.cells) - 1
+
     def draw(self, screen): # Creates a command that draws the current block
         tiles = self.get_cell_positions() # Sets the tile variable to the rotation state and cells of the block
         for tile in tiles: 
