@@ -1,0 +1,521 @@
+#!/bin/bash
+
+# Gets into game directory
+cd ~
+cd Games/Quatro\ Tetris
+
+## Setting Default Variables
+
+tasks=("task1" "task2" "task3" "task4" "task5" "task6" "task7")
+
+custom_tasks=("Linux Distribution" "'snap' Version" "Python Command" "Python Version" "'pygame' Version" "Requirements" "Modules" "Game Version")
+
+## Definining Functions
+
+# Splash Screen Function
+function splash 
+{
+    cat splash.txt
+    echo
+}
+
+# Splash Screen Function
+function splash_error
+{
+    cat splash-error.txt
+    echo
+}
+
+# Splash Screen Function
+function splash_error_2
+{
+    cat splash-error-2.txt
+    echo
+}
+
+# Splash Screen Function
+function splash_error_3
+{
+    cat splash-error-3.txt
+    echo
+}
+
+# Splash Screen Function
+function splash_error_4
+{
+    cat splash-error-4.txt
+    echo
+}
+
+# Splash Screen Function
+function splash_yay
+{
+    cat splash-yay.txt
+    echo
+}
+
+# Splash Screen Function
+function splash_thanks
+{
+    cat splash-thanks.txt
+    echo
+}
+
+# Line Function
+function line
+{
+    tput cols > nul
+    for ((i=1; i<=$COLUMNS; i++)); do
+        echo -n "-"
+    done
+    echo
+}
+
+# Client Info Function
+function display_client_info 
+{
+    echo "Client Info"
+    line
+    echo "Game Version: $version"
+    echo "Executable Version: $executable_version"
+    echo "Python Version: $python_version"
+    echo "Pygame Version: $pygame_version"
+    echo "Pygame Community Edition Version: $pygame_ce_version"
+    echo "Snap Version: $snap_version"
+    echo "Linux Distro: $distro_info"
+}
+## Variable Resets
+executable_version="$(cat version.txt)"
+python_command=""
+
+## [--help] Command
+if [ "$1" = "--help" ]; then
+    splash
+    line
+    echo "Command Operators"
+    echo "-h or --help           | Shows this menu"
+    echo "--py-command [command] | Disables the automatic detection of your Python Command and sets the Python Command value"
+    line
+    exit 0
+fi
+
+## [--py-command] Command
+if [ "$1" = "--py-command" ]; then
+    python_command="$2"
+    clear
+    splash
+    line
+    echo "Python Command was set to $python_command"
+    python_set="y"
+fi
+
+## [--debug] Command
+if [[ "${@:1:9}" =~ "--debug" ]]; then
+    debug="y"
+    clear
+    splash
+    line
+    echo "Debug mode is running..."
+    sleep 1
+    clear
+fi
+
+## [--update] Command
+if [[ "${@:1:9}" =~ "--update" ]]; then
+    debug="y"
+    # Prompt the user for their password using a graphical popup
+    clear
+    splash
+    line
+    echo "Waiting for password entry..."
+    echo "Quatro-Tetris will not use your password for anything else after this entry or upload it to the web. Dont believe me? Check out our code on our github repository :3"
+    password=$(zenity --password --title="Update Application" --timeout=10)
+
+    # Check if the password was entered successfully
+    if [[ $? -eq 0 ]]; then
+        # Display update splash screen
+        clear
+        splash
+        line
+        echo "Updating Quatro Tetris from the codingstuffs repository..."
+        echo "Thank you for supporting my work!   -ZcraftElite"
+        line
+        # Run the script with sudo permissions
+        # Download the codingstuffs repository
+        echo "Cloning the 'codingstuffs' directory locally..."
+        git clone https://github.com/zcraftelite9495/codingstuffs.git >nul
+
+        # Copy the Quatro-Tetris folder to the desired destination
+        echo "Copying Files to Quatro-Tetris folder..."
+        cp -R codingstuffs/Python/Personal\ Project\ 2024/Quatro-Tetris/* ~/Games/Quatro\ Tetris
+
+        # Downloads Quatro-Tetris into your /bin/ directory
+        echo "Setting up command..."
+        echo "$password" | sudo -S cp quatro-tetris /bin/
+        echo "$password" | sudo -S chmod +x /bin/quatro-tetris
+
+        # Clean up temporary files
+        echo "Removing Unnecessary Files..."
+        rm -rf codingstuffs
+        sleep 2 # Adds some artificial delay for smoother transition
+        clear
+        splash
+        line
+        splash_yay
+        line
+        echo "Update has been installed :3"
+        echo "Your now using Quatro Tetris Version $(cat version.txt)!"
+        echo "Along with the newest version of the executable, you also have updated your game versions!"
+        echo "Here are the following new or modified versions of the game you have installed on your system:"
+        detected_game_files=($(ls *.py | awk '/^quatro-tetris-/ {print $NF}' | sed -E 's/^quatro-tetris-//; s/.py$//; s/$/ /' | tr -d '\n' | sed -E 's/^ //'))
+
+        for file in "${detected_game_files[@]}"; do
+            game_file_version="$(sed -n 1p "quatro-tetris-$file.py" | sed -E 's/^# //')"
+            echo "$file - $game_file_version"
+        done
+        echo
+        echo "I hope you enjoy playing!"
+        exit 0
+    else
+        clear
+        splash
+        line
+        echo "You need to enter your password in order to update the file, please rerun the command and enter your password"
+        exit 1
+    fi
+    clear
+fi
+
+## [--client-info] Command
+if [ "$1" = "--client-info" ]; then
+    client_info_only="y"
+fi
+
+## Main Executable File
+
+# Clears the screen to prepare for game run
+clear
+
+# Tells the user what part of the program is running
+splash
+line
+echo "Checking Linux Distribution..."
+sleep 0.5 # Adds fake delay so text displays longer
+
+# For debug purposes, reads the contents of the '/etc/os-release' file into variables to detect the linux distribution that is running
+source <(grep -E "^(NAME|VERSION)=" /etc/os-release) # Gets the Linux Distribution from /etc/os-release and extracts the 'NAME' and 'VERSION' variables
+distro_name=$NAME # Renames the variable 'NAME'
+distro_version=$VERSION # Renames the variable 'VERSION'
+distro_info="$distro_name $distro_version" # Combines the new variables
+unset NAME
+unset VERSION
+
+# Clears the screen because the process was finished
+clear
+
+# Tells the user what part of the program is running
+splash
+line
+echo "Checking Snap Version..."
+sleep 0.5 # Adds fake delay so text displays longer
+
+# Check if snap is installed
+if command -v snap > /dev/null; then
+  # If snap is installed, save the version to a variable
+  snap_version=$(snap --version | grep -oE 'snap[[:space:]]+([0-9.]+)' | sed 's/^snap //' | sed 's/[[:space:]]//g')
+else
+  # If snap is not installed, save "Not Installed" to the variable
+  snap_version="Not Installed"
+fi
+
+# Clears the screen becaues the process was finished
+clear
+
+# Tells the user what part of this file is running
+splash
+line
+echo "Checking Python Command..."
+sleep 0.5 # Adds fake delay so text displays longer
+
+if [ "$python_set" != "y" ]; then
+    # Detects the type of python command you have installed on your system
+    if command -v python &>/dev/null; then # Checks to see if you use 'python'
+        python_command="python" # If you use 'python', sets the python command to 'python'
+    elif command -v python3 &>/dev/null; then # Checks to see if you use 'python3'
+        python_command="python3" # If you use 'python3', sets the python command to 'python3'
+    elif command -v py &>/dev/null; then # Checks to see if you use 'py'
+        # Spits out an error stating that the 'py' command is not compatible with this script
+        echo "Error 0001"
+        line
+        echo "It appears as if you are using the 'py' command only as your python interpreter. Quatro Tetris is unable to run using the 'py' interpreter. Please install 'python' or 'python3'."
+        exit 1
+    elif command -v python2 &>/dev/null; then # Checks to see if you only have 'python2' installed
+        # Spits out an error stating that Quatro Tetris cannot be run with Python 2
+        echo "Error 0002"
+        line
+        echo "It appears that you do not have a valid Python 3 command interpreter. Quatro Tetris is not able to be ran via Python 2. Please install a Python 3 Interpreter and try again."
+        exit 1
+    else
+        # Spits out an error stating the Quatro Tetris cannot be ran without Python
+        echo "Error 0003"
+        line
+        echo "It appears that you do not have a valid Python 3 command interpreter. Quatro Tetris cannot be run without Python 3. Please install a Python 3 Interpreter and try again."
+    fi
+fi
+
+# Clears the screen because the process was finished
+clear
+
+# Tells the user what part of this file is running
+splash
+line
+echo "Checking Python Version..."
+sleep 0.5 # Adds fake delay so text displays longer
+
+# Detects the exact version of python the user is running and saves it to a variable
+python_version=$($python_command --version 2>&1 | cut -d' ' -f2)
+
+# Clears the screen because the process was finished
+clear
+
+# Tells the user what part of this file is running
+splash
+line
+echo "Checking 'pygame' version..."
+sleep 0.5 # Adds fake delay so text displays longer
+
+pygame_version=$(pip show pygame | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | sed 's/Version: //')
+
+# Clears the screen because the process was finished
+clear
+
+# Tells the user what part of this file is running
+splash
+line
+echo "Checking 'pygame-ce' version..."
+sleep 0.5 # Adds fake delay so text displays longer
+
+pygame_ce_version=$(pip show pygame-ce | grep -oE 'Version:[[:space:]]+([0-9.]+)'  | sed 's/Version: //')
+
+# Clears the screen because the process was finished
+clear
+
+# Tells the user what part of this file is running
+splash
+line
+echo "Checking installed game files..."
+sleep 0.5 # Adds fake delay so text displays longer
+
+detected_game_files=($(ls *.py | awk '/^quatro-tetris-/ {print $NF}' | sed -E 's/^quatro-tetris-//; s/.py$//; s/$/ /' | tr -d '\n' | sed -E 's/^ //'))
+
+for file in "${detected_game_files[@]}"; do
+    game_file_version="$(sed -n 1p "quatro-tetris-$file.py" | sed -E 's/^# //')"
+    echo "Found - $file - $game_file_version"
+done
+echo
+echo "${#detected_game_files[@]} Files were Found"
+sleep 1
+
+# Clears the screen because the process was finished
+clear
+
+# Tells the user what part of this file is running
+splash
+line
+echo "Checking Requirements..."
+sleep 0.5 # Adds fake delay to show text on screen longer
+
+# Sets the modules required for the program to be ran
+modules=("pygame" "pygame-ce" "random" "time" "sound" "configparser" "sys")
+
+# Checks weather or not those modules are installed, and installs them if they arent
+for module in "${modules[@]}"; do
+    if $python_command -c "import $module" 2>&1 | grep -q "ModuleNotFoundError"; then
+        echo "$module - Not Found"
+        echo "Installing $module..."
+        pip install $module
+    else
+        echo "$module - Found"
+    fi
+done
+
+# Clears the screen because the process was finished
+clear
+
+# If the client info command modifier was used then it quits and displays the client info
+if [ "$client_info_only" = "y" ]; then
+    splash
+    line
+    display_client_info
+    exit 0
+fi
+
+# Prompts the user for what version of Quatro Tetris they want to run
+splash
+line
+version="main"
+echo "Automatically selected ($version)"
+line
+echo "Currently installed versions:"
+for file in "${detected_game_files[@]}"; do
+    game_file_version="$(sed -n 1p "quatro-tetris-$file.py" | sed -E 's/^# //')"
+    echo "$file - $game_file_version"
+done
+echo "Press enter to confirm or type a custom version name and hit enter"
+read -p ">" proposed_version
+if [ "$proposed_version" != "" ]; then
+    version="$proposed_version"
+fi
+clear
+
+# Tells the user what part of the program is running
+splash
+line
+echo "Checking Game Version..."
+sleep 0.5
+
+# Sets the filename based on the version selected by the user
+python_file="quatro-tetris-$version.py"
+
+# Clears the screen because the process has finished
+clear
+
+# Creates a temporarily file to store data
+tempfile=$(mktemp)
+
+# Runs the game
+if [ -f "$python_file" ]; then
+    if [ "$debug" = "y" ]; then
+        splash
+        line
+        display_client_info
+        sleep 5
+        clear
+    fi
+    splash
+    line
+    echo "Running Quatro Tetris ($version)"
+    sleep 1
+    clear
+    # Gets the output given when the game exits
+    $python_command "$python_file" >(tee /dev/tty) 2> "$tempfile"
+    # Checks the exit code given by the game
+    exit_code=$?
+    if [ $exit_code -ne 0 ]; then # Checks if the exit was due to an error
+        # If the exit was due to an error, it detects the type of python error that was encountered and throws an error message, which will include more information if the program was run in debug mode.
+        clear
+        if [[ "$(cat "$tempfile")" =~ "SyntaxError" ]]; then
+            splash
+            line
+            splash_error
+            line
+            echo "Error 0005"
+            line
+            echo "A SyntaxError in the game code has occured. Please try again. If the issue presists, please contact the developer."
+            if [ "$debug" = "y" ]; then
+                echo ""
+                display_client_info
+                echo ""
+                echo "Python Output"
+                line
+                cat "$tempfile"
+            fi
+            exit 1
+        elif [[ "$(cat "$tempfile")" =~ "TypeError" ]]; then
+            splash
+            line
+            splash_error
+            line
+            echo "Error 0006"
+            line
+            echo "A TypeError in the game code has occured. Please try again. If the issue presists, please contact the developer."
+            if [ "$debug" = "y" ]; then
+                echo ""
+                display_client_info
+                echo ""
+                echo "Python Output"
+                line
+                cat "$tempfile"
+            fi
+            exit 1
+        elif [[ "$(cat "$tempfile")" =~ "IndexError" ]]; then
+            splash
+            line
+            splash_error
+            line
+            echo "Error 0007"
+            line
+            echo "A IndexError in the game code has occured. Please try again. If the issue presists, please contact the developer."
+            if [ "$debug" = "y" ]; then
+                echo ""
+                display_client_info
+                echo ""
+                echo "Python Output"
+                line
+                cat "$tempfile"
+            fi
+            exit 1
+        elif [[ "$(cat "$tempfile")" =~ "ModuleNotFoundError" ]]; then
+            splash
+            line
+            splash_error_2
+            line
+            echo "Error 0008"
+            line
+            echo "A module in the game was either not found or failed to initialize. Please contact the developer."
+            if [ "$debug" = "y" ]; then
+                echo ""
+                display_client_info
+                echo ""
+                echo "Python Output"
+                line
+                cat "$tempfile"
+            fi
+            exit 1
+        else
+            clear
+            splash
+            line
+            splash_error_3
+            line
+            echo "Error 0000"
+            line
+            echo "A unexpected error in the game code has occured or the application has been forced to quit. If the application stopped responding, and you were forced to quit it, it could be caused by issues with your device, and you should ignore this error. If you were not forced to quit the application, please try again. If the issue persists, please contact the developer."
+            if [ "$debug" = "y" ]; then
+                echo ""
+                display_client_info
+                echo ""
+                echo "Python Output"
+                line
+                cat "$tempfile"
+            fi
+            exit 1
+        fi
+    fi
+    sleep 1
+    clear
+    splash
+    line
+    echo "Quatro Tetris $version"
+    line
+    splash_thanks
+    line
+    echo "Give feedback on Twitter or Instagram by mentioning @zcraftelite"
+    echo ""
+else
+    clear
+    splash
+    line
+    splash_error_4
+    line
+    echo "Error 0004"
+    line
+    echo "The Version of the game you are trying to run ($version), does not exist or is not currently downloaded. Please ensure you have run 'quatro-tetris --update' and have the latest data from the repository, and that you typed the version number in correctly. You have the following versions currently installed:"
+    detected_game_files=($(ls *.py | awk '/^quatro-tetris-/ {print $NF}' | sed -E 's/^quatro-tetris-//; s/.py$//; s/$/ /' | tr -d '\n' | sed -E 's/^ //'))
+    for file in "${detected_game_files[@]}"; do
+        game_file_version="$(sed -n 1p "quatro-tetris-$file.py" | sed -E 's/^# //')"
+        echo "$file - $game_file_version"
+    done
+    echo ""
+    exit 1
+fi

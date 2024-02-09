@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--In the previous exercise we created an <input> element but we didn’t include anything to explain what the <input> is used for. For a user to properly identify an <input> we use the appropriately named <label> element.
+
+The <label> element has an opening and closing tag and displays text that is written between the opening and closing tags. To associate a <label> and an <input>, the <input> needs an id attribute. We then assign the for attribute of the <label> element with the value of the id attribute of <input>-->
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+        <title>HTML Forms</title>
+    </head>
+    <body>
+        <section id="overlay">
+        <img src="https://content.codecademy.com/courses/web-101/unit-6/htmlcss1-img_burger-logo.svg" alt="Davie's Burgers Logo" id="logo">
+        <hr>
+        <!--Add your code below-->
+        <form action="/practice.html" method="post">
+            <h1>BORGER</h1>
+            <p>Welcome to Davie's Burgers, place of the BORGER<br>Please login to make your BORGER</p>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username">
+        </form>
+        </section>
+    </body>
+</html>

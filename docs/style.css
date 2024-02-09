@@ -1,0 +1,68 @@
+/*Under Construction Page Styles*/
+body.under-construction-notice {
+    background-image: url('Assets/bg.jpg');
+}
+div.under-construction-notice {
+    text-align: center;
+    color: orange;
+}
+
+/*Body Homepage Styles*/
+body.homepage {
+    background-color: #b6d7a8;
+}
+
+/*Projects Page Style*/
+body.projects {
+    background-color: #9fc5e8;
+}
+
+/*Main Style Types*/
+
+div.header {
+    text-align: center;
+}
+p.paragraph {
+    width: 700px;
+    max-width: 100%;
+    word-wrap: normal;
+}
+p.paragraph-centered {
+    width: 700px;
+    max-width: 100%;
+    word-wrap: normal;
+    text-align: center;
+    margin: 0 auto;
+  }
+*.centered {
+    max-width: 100%;
+    word-wrap: normal;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*Divider Types*/
+hr.dashed {
+    border-top: 3px dashed #bbb;
+  }
+hr.dotted {
+    border-top: 3px dotted #bbb;
+}
+hr.solid {
+    border-top: 3px solid #bbb;
+}
+hr.rounded {
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
+}
+
+/*Font Types*/
+*.font-comfortaa {
+    font-family: 'Comfortaa', sans-serif;
+}
+*.font-gloria-hallelujah {
+    font-family: 'Gloria Hallelujah', cursive;
+}
+*.font-julius-sans-one {
+    font-family: 'Julius Sans One', sans-serif;
+}

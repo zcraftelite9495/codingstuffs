@@ -1,0 +1,8 @@
+#!/bin/bash
+dialog --title "Root .bashrc Updater" --yesno "Would you like to update the Root .bashrc?" 7 60
+response=$?
+clear
+if [ $response = 0 ]
+then
+    cp /home/zcraftelite/.root-bashrc /root/.bashrc
+fi
