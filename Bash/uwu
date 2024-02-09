@@ -1,0 +1,5 @@
+#!/bin/bash
+echo -e "\033[1;32mUwU \033[mis \033[1;33mCanon\033[m"
+echo -e "Type \033[1;5;35mOwO\033[m to continue..."
+read -p ">"
+clear
