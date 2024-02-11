@@ -10,14 +10,14 @@ Since JavaScript remains at the core of web development, it’s often the first 
 
 In this lesson, you will learn introductory coding concepts including data types and built-in objects—essential knowledge for all aspiring developers. Make sure to take notes and pace yourself. This foundation will set you up for understanding the more complex concepts you’ll encounter later.
 
-### Instructions
+## Instructions
 
 Move to the next exercise when you’re ready to begin.
 
-### Video Walkthrough
+## Video Walkthrough
 
 If you get stuck during this lesson or would like to see an experienced developer work through the lesson, watch this lesson's walkthrough video
 
-### Concept Review
+## Concept Review
 
 Want to quickly review some of the concepts you’ve been learning? Take a look at this material's (cheatsheet)[https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-introduction/cheatsheet]!
