@@ -2,7 +2,8 @@
 
 ## Files
 
-- app.js
+- app.step1.js
+- app.step2.js
 
 ## Learn
 
