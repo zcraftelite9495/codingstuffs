@@ -1,4 +1,4 @@
-# Part 1 - Lesson 1 - Introduction to JavaScript
+# Lesson 1 - Introduction to JavaScript
 
 ## Learn
 
