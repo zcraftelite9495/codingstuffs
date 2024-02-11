@@ -29,7 +29,7 @@ Build fluency in JavaScript fundamentals by practicing variables and printing to
 Practice functions to help us build separation of concerns by building a calculator to tell us if we are getting enough sleep each week.
 
 
-## Whale Talk
+### Whale Talk
 
 Master the art of looping by creating a program that talks like a whale!
 
