@@ -3,9 +3,9 @@
 ## Files
 ('starterfile's are what codecademy gave me in the file to start with)
 
-- app.starterfile.js
-- app.step1.js
-- app.step2.js
+- (app.starterfile.js)[./app.starterfile.js]
+- (app.step1.js)[./app.step1.js]
+- (app.step2.js)[./app.step2.js]
 
 ## Learn
 
