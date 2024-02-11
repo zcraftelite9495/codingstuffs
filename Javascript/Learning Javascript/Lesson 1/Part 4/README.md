@@ -6,8 +6,8 @@
 - [app.starterfile.js](./app.starterfile.js)
 - [app.step1.js](./app.step1.js)
 - [app.step2.js](./app.step2.js)
-- [app.step3.js](./app.step2.js)
-- [app.step4.js](./app.step2.js)
+- [app.step3.js](./app.step3.js)
+- [app.step4.js](./app.step4.js)
 
 ## Learn
 
