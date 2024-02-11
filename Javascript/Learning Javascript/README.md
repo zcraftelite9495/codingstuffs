@@ -1,6 +1,6 @@
 # Codingstuffs - Zena's Adventure Learning Javascript
 
-#### Powered by Codecademy: A breif overview of what you will learn in this course
+#### Powered by Codecademy: A breif overview of what you will learn in this course<br>Legal Disclaimer: These lessons are provided free by codecademy and are not written by me, and are provided within this repository to show my learning comprehension.
 
 ## What will you learn?
 
