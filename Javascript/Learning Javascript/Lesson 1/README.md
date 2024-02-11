@@ -20,4 +20,4 @@ If you get stuck during this lesson or would like to see an experienced develope
 
 ### Concept Review
 
-Want to quickly review some of the concepts you’ve been learning? Take a look at this material's (cheatsheet[https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-introduction/cheatsheet])!
+Want to quickly review some of the concepts you’ve been learning? Take a look at this material's (cheatsheet)[https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-introduction/cheatsheet]!
