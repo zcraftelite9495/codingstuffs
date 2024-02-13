@@ -25,6 +25,10 @@ Welcome to my coding world! This repository is a hub for everything related to m
     <td>.html, .mhtml</td>
   </tr>
   <tr>
+    <td>Java</td>
+    <td>.java</td>
+  </tr>
+  <tr>
     <td>Javascript</td>
     <td>.js, .json</td>
   </tr>
