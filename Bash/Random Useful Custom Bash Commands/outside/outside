@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Running command outside terminal..."
+nohup $1 $2 $3 $4 $5 $6 $7 $8 $9 &
