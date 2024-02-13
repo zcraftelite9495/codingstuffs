@@ -1,4 +1,4 @@
-# Lesson 1 - Part 5 - String Concatenation
+# Lesson 1 - Part 7 - String Concatenation
 
 ## Files
 ('starterfile's are what codecademy gave me in the file to start with)
