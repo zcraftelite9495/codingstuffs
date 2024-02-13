@@ -21,8 +21,6 @@ The `.` is another operator! We call it the *dot operator*.
 
 In the example above, the value saved to the `length` property is retrieved from the instance of the string, `'Hello'`. The program prints ~ to the console, because `Hello` has five characters in it.
 
-### String Concatenation
-
 
 
 ## Instructions

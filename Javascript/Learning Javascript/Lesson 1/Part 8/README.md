@@ -37,9 +37,6 @@ console.log('Hey'.startsWith('H')); // Prints true
 You can find a list of built-in string methods in the [JavaScript documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype). Developers use documentation as a reference tool. It describes JavaScript’s keywords, methods, and syntax.
 
 
-### String Concatenation
-
-
 
 ## Instructions
 
