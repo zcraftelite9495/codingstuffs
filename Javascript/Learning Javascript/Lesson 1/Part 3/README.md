@@ -21,7 +21,7 @@ There are two types of code comments in JavaScript:
 
 1. A *single line* comment will comment out a single line and is denoted with two forward slashes (`//`) preceding it. For example:
 
-```
+```js
 // Prints 5 to the console
 console.log(5)
 
@@ -29,13 +29,13 @@ console.log(5)
 
 You can also use a single line comment to comment after a line of code:
 
-```
+```js
 console.log(5);  // Prints 5 
 
 ```
 2. A *multi-line* comment will comment out multiple lines and is denoted with `/*` to begin the comment, and `*/` to end the comment.
 
-```
+```js
 /*
 This is all commented 
 console.log(10);
@@ -47,7 +47,7 @@ console.log(99);
 
 You can also use this syntax to comment something out in the middle of a line of code:
 
-```
+```js
 console.log(/*IGNORED!*/ 5);  // Still just prints 5 
 
 ```

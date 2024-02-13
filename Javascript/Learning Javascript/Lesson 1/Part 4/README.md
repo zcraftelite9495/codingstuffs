@@ -29,7 +29,7 @@ more about objects, you’ll be able to create complex collections of data.
 
 But before we do that, let’s get comfortable with strings and numbers!
 
-```
+```js
 console.log('Location of Codecademy headquarters: 575 Broadway, New York City');
 console.log(40);
 

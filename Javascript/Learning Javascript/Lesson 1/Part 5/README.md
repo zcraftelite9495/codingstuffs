@@ -26,7 +26,7 @@ An [operator](https://www.codecademy.com/resources/docs/javascript/operators?pag
 
 The first four work how you might guess: 
 
-```
+```js
 console.log(3 + 4); // Prints 7
 console.log(5 - 1); // Prints 4
 console.log(4 * 2); // Prints 8
@@ -36,7 +36,7 @@ console.log(9 / 3); // Prints 3
 
 Note that when we `console.log()` the computer will evaluate the expression inside the parentheses and print that result to the console. If we wanted to print the characters `3 + 4`, we would wrap them in quotes and print them as a string. 
 
-```
+```js
 console.log(11 % 3); // Prints 2
 console.log(12 % 3); // Prints 0
 

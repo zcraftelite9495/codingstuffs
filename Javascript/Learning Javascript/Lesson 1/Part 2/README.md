@@ -18,7 +18,7 @@ One action, or method, that is built into the `console` object is the `.log()` m
 It’s going to be very useful for us to print values to the console, so we can see the work that we’re doing. 
 
 
-```
+```js
 console.log(5); 
 
 ```
