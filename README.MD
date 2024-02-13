@@ -36,7 +36,12 @@ Welcome to my coding world! This repository is a hub for everything related to m
   </tr>
   <tr>
     <td>Markdown</td>
-    <td>linux executable, .sh</td>
+    <td>.md</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>Python</td>
+    <td>python executable, .py</td>
     <td>0</td>
   </tr>
   <tr>
