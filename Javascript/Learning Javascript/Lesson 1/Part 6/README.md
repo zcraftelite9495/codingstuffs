@@ -5,6 +5,7 @@
 
 - [app.starterfile.js](./app.starterfile.js)
 - [app.step1.js](./app.step1.js)
+- [app.step2.js](./app.step2.js)
 
 ## Learn
 
