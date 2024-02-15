@@ -62,7 +62,7 @@
         </tr>
       </table>
     </td>
-    <td>
+    <td valign="top">
       <h3>Overview</h3><br>
       <span>Welcome to my coding world! This repository is a hub for everything related to my coding journey. Here, you'll find links to various repositories, projects, and resources that showcase my passion for coding. Whether you're here to explore my work or collaborate.</span>
     </td>
