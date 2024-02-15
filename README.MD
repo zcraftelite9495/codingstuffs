@@ -1,7 +1,7 @@
 # Z's Ultimate Coding Respiratory (CodingStuffs)
 
 <table>
-  <tr>
+  <tr border="0">
     <td>
       <h3>Code Languages in this repo</h3><br>
       <table>
