@@ -31,12 +31,12 @@
         </tr>
         <tr>
           <td><img src="https://skillicons.dev/icons?i=java" height="40"/></td>
-          <td>Java</td>
+          <td><a href="./Java">Java</a></td>
           <td>.java</td>
         </tr>
         <tr>
           <td><img src="https://skillicons.dev/icons?i=js" height="40"/></td>
-          <td>Javascript</td>
+          <td><a href="./Javascript">Javascript</a></td>
           <td>.js, .json</td>
         </tr>
         <tr>
@@ -46,17 +46,17 @@
         </tr>
         <tr>
           <td><img src="https://skillicons.dev/icons?i=py" height="40"/></td>
-          <td>Python (v 2.7)</td>
+          <td><a href="./Python">Python (v 2.7)</a></td>
           <td>python executable, .py</td>
         </tr>
         <tr>
           <td><img src="https://skillicons.dev/icons?i=py" height="40"/></td>
-          <td>Python (v 3.10)</td>
+          <td><a href="./Python">Python (v 3.10)</a></td>
           <td>python executable, .py</td>
         </tr>
         <tr>
           <td><img src="https://skillicons.dev/icons?i=visualstudio" height="40"/></td>
-          <td>Visual Basic Script</td>
+          <td><a href="./Visual Basic Script">Visual Basic Script</a></td>
           <td>.vbs</td>
         </tr>
       </table>
