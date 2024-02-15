@@ -63,7 +63,17 @@
     </td>
     <td valign="top">
       <h3>Overview</h3><br>
-      <span>Welcome to my coding world! This repository is a hub for everything related to my coding journey. Here, you'll find links to various repositories, projects, and resources that showcase my passion for coding. Whether you're here to explore my work or collaborate.</span>
+      <span>Welcome to my coding world! This repository is a hub for everything related to my coding journey. Here, you'll find links to various repositories, projects, and resources that showcase my passion for coding. Whether you're here to explore my work or collaborate.</span><br>
+      <h3>What am I learning now?</h3><br>
+      <table>
+        <tr>
+          <th colspan="2">Language</th>
+        </tr>
+        <tr>
+          <td><img src="https://skillicons.dev/icons?i=py" height="40"/></td>
+          <td>Javascript</td>
+        </tr>
+      </table>
     </td>
   </tr>
 </table>
