@@ -6,8 +6,7 @@
       <h3>Code Languages in this repo</h3><br>
       <table>
         <tr>
-          <th>Icon</th>
-          <th>Language</th>
+          <th colspan="2">Language</th>
           <th>File Types</th>
         </tr>
         <tr>
