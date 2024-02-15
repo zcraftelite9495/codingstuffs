@@ -1,6 +1,12 @@
 # Z's Ultimate Coding Respiratory (CodingStuffs)
+
+<div align="left">
+
 ### Overview
 Welcome to my coding world! This repository is a hub for everything related to my coding journey. Here, you'll find links to various repositories, projects, and resources that showcase my passion for coding. Whether you're here to explore my work or collaborate.
+</div>
+
+<div align="right">
 
 ### Languages in this repo
 <table>
@@ -60,3 +66,4 @@ Welcome to my coding world! This repository is a hub for everything related to m
     <td>.vbs</td>
   </tr>
 </table>
+</div>
