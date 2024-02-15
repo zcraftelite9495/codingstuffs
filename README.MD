@@ -11,7 +11,7 @@
         </tr>
         <tr>
           <td><img src="https://skillicons.dev/icons?i=bash" height="40"/></td>
-          <td>Bash/Shell</td>
+          <td><a href="./Bash">Bash/Shell</a></td>
           <td>linux executable, .sh</td>
         </tr>
         <tr>
