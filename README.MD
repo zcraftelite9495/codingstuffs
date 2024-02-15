@@ -16,17 +16,17 @@
         </tr>
         <tr>
           <td><img src="https://skillicons.dev/icons?i=bash" height="40"/></td>
-          <td>Batch</td>
+          <td><a href="./Batch">Batch</a></td>
           <td>.bat</td>
         </tr>
         <tr>
           <td><img src="https://skillicons.dev/icons?i=css" height="40"/></td>
-          <td>CSS</td>
+          <td><a href="./CSS">CSS</a></td>
           <td>.css</td>
         </tr>
         <tr>
           <td><img src="https://skillicons.dev/icons?i=html" height="40"/></td>
-          <td>HTML</td>
+          <td><a href="./Bash">HTML</a> (<a href="./docs">this site</a>)</td>
           <td>.html, .mhtml</td>
         </tr>
         <tr>
