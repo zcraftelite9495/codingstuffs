@@ -1,6 +1,6 @@
 # Z's Ultimate Coding Respiratory (CodingStuffs)
 
-<table style="border:0px solid white; width:100%;">
+<table>
   <tr>
     <td>
       <h3>Code Languages in this repo</h3><br>
