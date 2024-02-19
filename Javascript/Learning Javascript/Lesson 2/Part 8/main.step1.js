@@ -1,0 +1,1 @@
+let myName = 'Z' // Sets myName to Z :3

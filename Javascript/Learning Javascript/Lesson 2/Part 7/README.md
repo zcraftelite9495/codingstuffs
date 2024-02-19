@@ -2,6 +2,8 @@
 
 ## Files
 - Starter File - [main.starterfile.js](./main.starterfile.js)
+- Step 1 - [main.step1.js](./main.step1.js)
+- Step 2 - [main.step2.js](./main.step2.js)
 
 ## Learn
 
