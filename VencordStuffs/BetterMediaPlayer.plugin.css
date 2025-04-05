@@ -255,14 +255,6 @@
     height: 50px;
     transition: height 0.4s ease-out;
     overflow: hidden;
-    #vc-spotify-info-wrapper {
-        #vc-spotify-titles {
-                &:has(> #vc-spotify-album-title) {
-                    display: none;
-                    transition: opacity 0.4s ease-out;
-                }
-        }
-    }
     #vc-spotify-progress-bar,
     .vc-spotify-button-row {
         opacity: 0;
