@@ -1,0 +1,57 @@
+[class*='base_'] > [class*='content_'] {
+    margin: 0 10px 10px 0;
+
+    [class*='page_'] {
+        border: 1px solid var(--app-border-frame);
+        border-left: none;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    [class*='sidebar_'] {
+        &::after {
+            display: none;
+        }
+
+        [class*='sidebarList_'] {
+            border-bottom: 1px solid var(--app-border-frame);
+            border-bottom-left-radius: var(--radius-md);
+        }
+    }
+
+    [class*='chat_'] {
+        border-top: none !important;
+    }
+}
+
+.standardSidebarView__23e6b {
+    width: calc(100vw - var(--custom-guild-list-width) - 10px);
+    top: calc(var(--custom-app-top-bar-height) * 1.5 + 2px )!important;
+    left: var(--custom-guild-list-width);
+    height: calc(100vh - calc(var(--custom-app-top-bar-height) * 1) - 11px);
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+.layerContainer_da8173, .backdrop__78332 {
+    width: calc(100vw - var(--custom-guild-list-width) - 10px);
+    top: var(--custom-app-top-bar-height)!important;
+    left: var(--custom-guild-list-width);
+    height: calc(100vh - var(--custom-app-top-bar-height) - 11px);
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+.submenuPaddingContainer_c1e9c4 {
+    margin-left: 80px;
+}
+.layer__960e4 {
+    background: rgba(0,0,0,0.5);
+}
+
+.baseLayer__960e4 {
+    opacity: 1!important;
+    transform: scale(1)!important;
+    z-index: 0;
+}
+
+.panels_c48ade {
+    z-index: 10000!important; /* could not make the user appear over settings or modals, yyyeerrraarrsesssarseaandthgrasssmannpunkyeseyahhavinh */
+}
