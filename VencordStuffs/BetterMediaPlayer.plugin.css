@@ -10,7 +10,7 @@
 /* prgress bar wave animation */
 @keyframes barwave {
     100% {
-        -webkit-mask-position: 30px 0px;
+        -webkit-mask-position: 25px 0px;
     }
 }
 
