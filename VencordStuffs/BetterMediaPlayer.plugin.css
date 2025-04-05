@@ -10,7 +10,7 @@
 /* prgress bar wave animation */
 @keyframes barwave {
     100% {
-        -webkit-mask-position: 25px 0px;
+        -webkit-mask-position: 30px 1px;
     }
 }
 
@@ -22,7 +22,7 @@
 #vc-spotify-player {
     /* variables */
     --android-blur-amount: 0.5px;
-    --android-darken-percent: 0.8;
+    --android-darken-percent: 0.7;
     --your-font-here: "Roboto";
     /* fonts */
     --fallback-font: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -49,6 +49,7 @@
         background-size: cover;
         background-position: center;
         filter: blur(var(--android-blur-amount));
+        filter: brightness(.7);
         clip-path: inset(0);
         border-radius: 21px 21px 0 0;
     }
@@ -79,15 +80,21 @@
                 white-space: wrap;
                 /* cutoff artists names if too long */
                 max-height: 2.5rem;
-                /* hide album title */
-                /* &:has(> #vc-spotify-album-title) {
-                    display: none;
-                } */
             }
+            /* Song Title Config */
             #vc-spotify-song-title {
                 font-weight: 400;
                 font-size: 14px;
                 color: white;
+            }
+            /* Album Config */
+            .vc-spotify-ellipoverflow:has(> #vc-spotify-album-title) {
+                font-size: .7em;
+                margin-top: -6px;
+            }
+            #vc-spotify-album-title {
+                color: white;
+                filter: brightness(.8);
             }
             /* hide "by" and "on" */
             .vc-spotify-ellipoverflow:has(> .vc-spotify-artist) {
@@ -131,7 +138,7 @@
                     border: 0;
                     margin-top: 0;
                     margin-left: 0;
-                    top: 12px;
+                    top: 4px;
                 }
             }
         }
@@ -251,18 +258,25 @@
         }
     }
 }
+/* HIDE PLAYER WHEN NOT HOVERED */
 #vc-spotify-player {
     height: 50px;
-    transition: height 0.4s ease-out;
+    transition: height 0.2s ease-out;
     overflow: hidden;
     #vc-spotify-progress-bar,
     .vc-spotify-button-row {
         opacity: 0;
         transition: opacity 0.4s ease-out;
     };
+    .vc-spotify-ellipoverflow:has(> #vc-spotify-album-title) {
+      display: none;
+    }
     &:hover {
-        height: 115px;
-        #vc-spotify-progress-bar,
+        height: 100px;
+        .vc-spotify-ellipoverflow:has(> #vc-spotify-album-title) {
+          display: flex;
+        }
+        #vc-spotify-progress-bar, 
         .vc-spotify-button-row {
             opacity: 1;
         }
