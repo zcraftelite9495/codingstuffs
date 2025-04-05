@@ -261,7 +261,8 @@
                     display: none;
                     transition: opacity 0.4s ease-out;
                 }
-            }
+        }
+    }
     #vc-spotify-progress-bar,
     .vc-spotify-button-row {
         opacity: 0;
