@@ -256,7 +256,7 @@
     transition: height 0.4s ease-out;
     overflow: hidden;
     #vc-spotify-progress-bar,
-    .vc-spotify-button-row {
+    .vc-spotify-button-row, #vc-spotify-album-title {
         opacity: 0;
         transition: opacity 0.4s ease-out;
     }
