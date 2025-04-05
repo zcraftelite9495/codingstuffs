@@ -54,21 +54,3 @@
 .visual-refresh [class^="sidebarResizeHandle_"] {
   display: none; /* Set your preferred width in the sidebar settings */
 }
-
-.visual-refresh [class^="container_"] [class^="membersWrap_"] {
-  position: fixed; /* Remove if you don't want it to float */
-  height: 100%;
-  opacity: 0%;
-  z-index: 999;
-  right: -260px;
-/*top: 80px;  /* Add/change this according to your desktop/client */
-  filter: drop-shadow(-16px -16px 16px #0005) ;
-  transition-property: right, opacity;
-  transition-duration: .5s;
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.visual-refresh [class^="container_"] [class^="membersWrap_"]:hover {
-  right: 0px;
-  opacity: 100%;
-}
