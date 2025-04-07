@@ -1,0 +1,77 @@
+/*
+ * @name BetterUserPanel
+ * @description Make the User Panel collapse when not hovered. Inspired by code from the.rabbit.disabler & prt.scr.
+ * @author ZcraftElite
+ * @version 1.0.0
+*/
+.panels_c48ade {
+  left: var(--space-sm)!important;
+  height: 55px!important;
+  width: 55px!important;
+  border-radius: 15px!important;
+  display: flex!important;
+  flex-direction: column;
+  overflow: hidden;
+  transition-duration: 0.35s;
+  z-index: 50000;
+  pointer-events: all;
+  border: 1px solid var(--border-subtle)!important;
+ &:has(.container_e131a9) {
+  border: 1px solid var(--border-normal);
+ }
+}
+
+.wrapper_e131a9 {
+  height: 0;
+  overflow: hidden;
+  
+}
+
+.panels_c48ade:hover {
+  width: 300px!important;
+  height: auto!important;
+  display: flex!important;
+  flex-direction: column;
+  border-radius: 15px!important;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.123)) ;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  .wrapper_e131a9 {
+    height: auto!important;
+  }
+}
+.sidebar_c48ade {
+  overflow: visible!important;
+}
+.container__2637a {
+  padding-bottom: 0px!important;
+}
+.scroller__99e7c {
+  margin-bottom: 0px!important;
+}
+.bottom__7aaec {
+  bottom: 0px!important;
+}
+
+
+.visual-refresh [class^="panels_"] [class^="container__"] [class^="buttons__"] {
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: left;
+  transition: opacity 0.1s ease-in, transform 0.1s ease-in;
+  will-change: opacity, transform;
+}
+
+.visual-refresh [class^="panels_"]:hover [class^="container__"] [class^="buttons__"] {
+
+  transform: scale(1);
+  
+  opacity: 1;
+}
+
+.visual-refresh .panel__5dec7 {
+  display: none;
+}
+
+.visual-refresh [class^="panels_"]:hover .panel__5dec7 {
+  display: block;
+}
